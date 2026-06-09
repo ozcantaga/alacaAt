@@ -1,0 +1,278 @@
+/* =============================================================================
+   🎨 MAIN CSS — Tailwind CSS 4 + Nuxt UI Theme
+   =============================================================================
+   Tüm tema, animasyon ve paylaşılan stiller tek noktada.
+   Dark-theme hariç (lazy yüklenir).
+   ============================================================================= */
+
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+/* ─── Theme Tokens ────────────────────────────────────────────────────────── */
+@theme {
+  --font-base: 'Inter', sans-serif;
+
+  /* Animation Duration */
+  --animate-duration-slow: 800ms;
+
+  /* 1. ZEMİN (BACKGROUND) RENKLERİ */
+  --color-page-bg: #bfe4f6;
+  --ui-bg-elevated: rgba(255, 255, 255, 0.85);
+
+  /* 2. METİN RENKLERİ */
+  --text-heading: #3D405B;
+  --text-body: #3D405B;
+  --text-muted: #3D405B;
+  --text-highlight: #E07A5F;
+
+  /* 3. BUTON & CTA RENKLERİ */
+  --color-primary-500: #E07A5F;
+  --color-primary-600: #3D405B;
+  --color-primary-700: #b1442a;
+  --text-inverse: rgba(255, 255, 255, 0.85);
+
+  /* 4. SİSTEM EŞLEŞTİRMELERİ (Nuxt UI & Tailwind) */
+  --color-primary: var(--color-primary-500);
+  --ui-bg: var(--color-page-bg);
+
+  --color-gray-50: var(--ui-bg-elevated);
+  --color-gray-100: var(--ui-bg-elevated);
+  --color-gray-200: var(--ui-bg-elevated);
+  --color-gray-300: var(--text-muted);
+  --color-gray-400: var(--text-muted);
+  --color-gray-500: var(--text-body);
+  --color-gray-600: var(--text-body);
+  --color-gray-700: var(--text-body);
+  --color-gray-800: var(--text-heading);
+  --color-gray-900: var(--text-heading);
+  --color-gray-950: var(--text-heading);
+}
+
+
+@layer base {
+  :root {
+    --color-primary-400: #EDAB98;
+    --icon-primary: var(--color-primary-500);
+  }
+}
+
+/* ─── Global Base Styles ──────────────────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-base);
+    overflow-x: hidden;
+    background-color: var(--color-page-bg);
+    color: var(--text-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-heading);
+  }
+}
+
+/* ─── Typography ──────────────────────────────────────────────────────────── */
+@layer base {
+  h1 {
+    font-family: var(--font-base);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-inverse);
+  }
+
+  h2, h3, h4, h5, h6 {
+    font-family: var(--font-base);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-heading);
+  }
+
+  p,
+  span:not(button span):not(a span),
+  .text-muted {
+    color: var(--text-muted);
+  }
+}
+
+/* ─── Hero Section Text Overrides ────────────────────────────────────────── */
+/* Global h1/h2/p renk kuralları hero görselleri üzerindeki metni baskılıyor.
+   Hero section içindeki tüm metin öğeleri daima beyaz olmalı. */
+#hero-section h1,
+#hero-section h2,
+#hero-section h3,
+#hero-section p,
+#hero-section span {
+  color: white !important;
+}
+
+/* ─── Section Spacing ─────────────────────────────────────────────────────── */
+.section-padding {
+  padding-block: 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding-block: 1.5rem;
+  }
+}
+
+/* ─── Image Hover Effects ─────────────────────────────────────────────────── */
+.img-zoom {
+  overflow: hidden;
+}
+
+.img-zoom img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.img-zoom:hover img {
+  transform: scale(1.08);
+}
+
+/* ─── Gold Divider ────────────────────────────────────────────────────────── */
+.divider-primary {
+  width: 60px;
+  height: 2px;
+  background: var(--text-highlight);
+  border: none;
+  border-radius: 1px;
+}
+
+/* ─── Star Rating ─────────────────────────────────────────────────────────── */
+.star-rating {
+  color: var(--text-highlight);
+  letter-spacing: 2px;
+}
+
+/* =============================================================================
+   ANIMATIONS — Tek noktada tüm keyframe'ler ve utility sınıflar
+   ============================================================================= */
+
+@keyframes fadeInUp {
+  from { opacity: 0.01; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0.01; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0.01; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0.01; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0.01; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Animation Utility Classes */
+.animate-fade-in-up { animation: fadeInUp var(--animate-duration-slow) ease-out both; }
+.animate-fade-in { animation: fadeIn var(--animate-duration-slow) ease-out both; }
+.animate-slide-in-left { animation: slideInLeft var(--animate-duration-slow) ease-out both; }
+.animate-slide-in-right { animation: slideInRight var(--animate-duration-slow) ease-out both; }
+.animate-scale-in { animation: scaleIn var(--animate-duration-slow) ease-out both; }
+
+/* Stagger Delays */
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
+.animate-delay-500 { animation-delay: 500ms; }
+.animate-delay-600 { animation-delay: 600ms; }
+.animate-delay-700 { animation-delay: 700ms; }
+
+/* =============================================================================
+   PAGE & LAYOUT TRANSITIONS
+   ============================================================================= */
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.page-enter-from { opacity: 0; transform: translateY(10px); }
+.page-leave-to { opacity: 0; transform: translateY(-10px); }
+
+.layout-enter-active,
+.layout-leave-active {
+  transition: opacity 0.3s ease;
+}
+.layout-enter-from,
+.layout-leave-to { opacity: 0; }
+
+/* =============================================================================
+   SHARED COMPONENT UTILITIES — Bileşenlerde tekrar eden stiller
+   ============================================================================= */
+
+/* Scrollbar Gizleme (BaseSlider, Gallery, Guide) */
+.scrollbar-hide::-webkit-scrollbar,
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.scrollbar-hide,
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Masonry Break-Inside (Gallery, Guide) */
+.break-inside-avoid {
+  break-inside: avoid;
+  isolation: isolate;
+  backface-visibility: hidden;
+}
+
+/* Serif Font (AppHero, TestimonialCard, HotelLightbox, Contact) */
+.font-serif {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* Sosyal Medya & İletişim İkon Butonları */
+.social-icon-btn {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 300ms ease;
+}
+.social-icon-btn:hover {
+  transform: translateY(-2px);
+}
+
+.contact-icon-wrapper {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 500ms ease;
+}
+
+/* =============================================================================
+   SCROLLBAR & SELECTION
+   ============================================================================= */
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-page-bg); }
+::-webkit-scrollbar-thumb { background: var(--text-muted); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-primary-500); }
+
+::selection {
+  background: var(--color-primary-500);
+  color: #ffffff;
+}

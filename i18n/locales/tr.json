@@ -1,0 +1,521 @@
+{
+  "reservation": {
+    "dateRange": "Tarih Aralığı",
+    "checkIn": "Giriş Tarihi",
+    "checkOut": "Çıkış Tarihi",
+    "selectCheckIn": "Giriş Tarihi Seçin",
+    "selectCheckOut": "Çıkış Tarihi Seçin",
+    "guests": "Konaklayacaklar",
+    "person": "Kişi",
+    "adult": "Yetişkin",
+    "adultDesc": "12 yaş ve üzeri",
+    "child": "Çocuk",
+    "free": "Ücretsiz",
+    "childFreeDesc": "0-5 Yaş",
+    "childDesc": "0-11 yaş",
+    "perNight": "Gecelik",
+    "priceFrom": "Şu fiyattan başlayan",
+    "discount": "%50 İndirimli",
+    "childDiscountDesc": "6-11 Yaş",
+    "discountBadge": "%15 İndirimli",
+    "title": "Müsait Odalar",
+    "notFound": "Oda Bulunamadı",
+    "notFoundDesc": "Seçtiğiniz tarihlerde kriterlerinize uygun müsait oda bulunmamaktadır. Lütfen farklı tarihler deneyin.",
+    "selectRoom": "Odayı Seç",
+    "checkout": {
+      "title": "Rezervasyonunuzu Tamamlayın",
+      "subtitle": "Lütfen aşağıdaki bilgileri eksiksiz doldurun",
+      "summary": "Rezervasyon Özeti",
+      "guestInfo": "Misafir Bilgileri",
+      "payment": "Ödeme",
+      "firstName": "Ad",
+      "lastName": "Soyad",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "requests": "Özel İstekler",
+      "creditCard": "Kredi Kartı",
+      "bankTransfer": "Havale / EFT",
+      "complete": "Rezervasyonu Tamamla",
+      "nights": "{count} Gece",
+      "total": "Toplam Tutar",
+      "iban": "IBAN",
+      "bankInfo": "Banka Bilgileri"
+    }
+  },
+  "nav": {
+    "home": "Ana Sayfa",
+    "rooms": "Odalar",
+    "gallery": "Galeri",
+    "about": "Hakkımızda",
+    "contact": "İletişim",
+    "bookNow": "Rezervasyon Yap",
+    "guide": "Rehber"
+  },
+  "hero": {
+    "welcome": "Hoş Geldiniz",
+    "discover": "Keşfedin",
+    "bookYourStay": "Odalarımız"
+  },
+  "home": {
+    "welcomeTitle": "Hoş Geldiniz",
+    "welcomeSubtitle": "Akdeniz'in eşsiz güzelliğinde butik bir konaklama deneyimi",
+    "featuredRooms": "Odalarımız",
+    "featuredRoomsSubtitle": "Her biri özenle tasarlanmış, benzersiz konfor sunan odalarımızı keşfedin",
+    "amenities": "Olanaklarımız",
+    "amenitiesSubtitle": "Konaklamanızı unutulmaz kılacak hizmetlerimiz",
+    "galleryTitle": "Galeri",
+    "gallerySubtitle": "Otelimizden kareler",
+    "testimonialsTitle": "Misafir Yorumları",
+    "testimonialsSubtitle": "Misafirlerimizin deneyimlerinden",
+    "locationTitle": "Konum",
+    "locationSubtitle": "Bizi ziyaret edin",
+    "ctaTitle": "Hayalinizdeki Tatili Yaşayın",
+    "ctaSubtitle": "Size özel bir konaklama deneyimi için hemen rezervasyon yapın",
+    "viewAll": "Tümünü Gör",
+    "viewDetails": "Detayları Gör",
+    "learnMore": "Daha Fazla"
+  },
+  "rooms": {
+    "title": "Odalar & Süitler",
+    "subtitle": "Her biri özenle tasarlanmış butik odalarımız",
+    "guests": "Misafir",
+    "size": "m²",
+    "roomSize": "{size} m²",
+    "amenities": "Olanaklar",
+    "viewRoom": "Odayı İncele",
+    "bookRoom": "Bu Odayı Rezerve Et",
+    "otherRooms": "İlginizi Çekebilecek Diğer Odalar",
+    "maxGuests": "Maks. {count} Misafir",
+    "checkIn": "Giriş Saati",
+    "checkOut": "Çıkış Saati",
+    "priceFrom": "Başlayan Fiyatlarla",
+    "priceOnRequest": "Fiyatlar sezona göre değişiklik göstermektedir. Kesin fiyat için iletişime geçiniz.",
+    "viewDetails": "Detayları İncele",
+    "perNight": "/ gece",
+    "guestReviews": "Misafirlerimizin Deneyimleri",
+    "noReviews": "Henüz yorum yapılmamış."
+  },
+  "gallery": {
+    "title": "Fotoğraf Galerisi",
+    "subtitle": "Otelimizin büyüleyici atmosferini keşfedin",
+    "all": "Tümü",
+    "exterior": "Dış Mekan",
+    "interior": "İç Mekan",
+    "room": "Odalar",
+    "restaurant": "Restoran",
+    "pool": "Havuz",
+    "spa": "Spa",
+    "view": "Manzara"
+  },
+  "about": {
+    "title": "Hakkımızda",
+    "subtitle": "Hikayemiz",
+    "storyTitle": "Hikayemiz",
+    "valuesTitle": "Değerlerimiz",
+    "valuesSubtitle": "Bizi farklı kılan temel değerlerimiz",
+    "established": "{year} yılından beri hizmetinizdeyiz"
+  },
+  "contact": {
+    "title": "İletişim",
+    "subtitle": "Sizden haber almak isteriz",
+    "titleMain": "Bizimle",
+    "titleSub": "İletişime Geçin",
+    "badge": "İLETİŞİM",
+    "phoneLabel": "Telefon",
+    "emailLabel": "E-Posta",
+    "addressLabel": "Adres",
+    "form": {
+      "name": "Adınız Soyadınız",
+      "email": "E-posta Adresiniz",
+      "phone": "Telefon Numaranız",
+      "subject": "Konu",
+      "message": "Mesajınız",
+      "send": "Mesaj Gönder",
+      "sending": "Gönderiliyor...",
+      "success": "Mesajınız başarıyla gönderildi!",
+      "error": "Bir hata oluştu. Lütfen tekrar deneyin."
+    },
+    "info": {
+      "address": "Adres",
+      "phone": "Telefon",
+      "email": "E-posta",
+      "hours": "Resepsiyon Saatleri",
+      "hoursValue": "7/24 hizmetinizdeyiz"
+    },
+    "mapTitle": "Konumumuz"
+  },
+  "footer": {
+    "quickLinks": "Hızlı Linkler",
+    "contactInfo": "İletişim Bilgileri",
+    "followUs": "Bizi Takip Edin",
+    "rights": "Tüm hakları saklıdır.",
+    "privacyPolicy": "Gizlilik Politikası",
+    "termsOfService": "Kullanım Koşulları"
+  },
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu",
+    "goBack": "Geri Dön",
+    "close": "Kapat",
+    "previous": "Önceki",
+    "next": "Sonraki",
+    "stars": "Yıldız"
+  },
+  "amenityNames": {
+    "wifi": "Wi-Fi",
+    "minibar": "Minibar",
+    "safe": "Kasa",
+    "ac": "Klima",
+    "tv": "TV",
+    "balcony": "Balkon veya Teras",
+    "sea-view": "Deniz Manzarası",
+    "garden-view": "Bahçe Manzarası",
+    "room-service": "Oda Servisi",
+    "jacuzzi": "Jakuzi",
+    "champagne": "Şampanya Servisi",
+    "extra-bed": "Ek Yatak",
+    "shower": "Duş",
+    "tile-floor": "Mermer / Fayans Zemin",
+    "pillow-menu": "Yastık Menüsü",
+    "bathroom": "Banyo",
+    "phone": "Telefon",
+    "hairdryer": "Saç Kurutma Makinesi",
+    "satellite": "Uydu Yayını",
+    "wardrobe": "Gardırop",
+    "smoke-detector": "Duman Dedektörü",
+    "soundproof": "Ses Yalıtımı",
+    "towels": "Havlu",
+    "slippers": "Terlik",
+    "toiletries": "Ücretsiz Banyo Ürünleri",
+    "bottled-water": "Ücretsiz Şişe Su",
+    "desk": "Masa",
+    "seating-area": "Oturma Alanı",
+    "iron": "Ütü ve Ütü Masası",
+    "fire-extinguisher": "Yangın Söndürücü",
+    "first-aid": "İlk Yardım Seti",
+    "window-guards": "Pencere Korkulukları",
+    "twin-beds": "2 Tek Kişilik Yatak",
+    "double-bed": "1 Çift Kişilik Yatak",
+    "pool-view": "Havuz Manzarası"
+  },
+  "guide": {
+    "badge": "KÜRATÖRLÜĞÜNÜ YAPTIĞIMIZ DENEYİMLER",
+    "title_1": "Yaşamın",
+    "title_2": "Ritmi.",
+    "titleFull": "Yaşamın Ritmi.",
+    "description": "Sörfün rüzgarından tarihin sessizliğine, Alaçatı'nın her köşesinde ayrı bir hikaye gizli. Sizin rotanız hangisi?",
+    "empty": "Bu hikaye henüz yazılmadı...",
+    "loading": "Keşif detayları hazırlanıyor...",
+    "return_all": "TÜM KEŞİFLERE DÖN",
+    "other_places": "DİĞER DURAKLAR",
+    "categories": {
+      "all": "HEPSİ",
+      "historicalPlaces": "TARİH",
+      "sports": "SÖRF & SPOR",
+      "beaches": "PLAJLAR",
+      "gourmet": "GURME",
+      "activities": "AKTİVİTE"
+    },
+    "places": {
+      "historicalPlaces": [
+        {
+          "id": "windmills",
+          "title": "Tarihi Alaçatı Yel Değirmenleri",
+          "location": "Alaçatı Girişi",
+          "period": "1850s",
+          "description": "Alaçatı'nın gökyüzüne uzanan imzası. 150 yılı aşkın süredir rüzgarı berekete dönüştüren bu yapılar, gün batımı için eşsiz bir teras sunar.",
+          "details": "Taş işçiliğinin en zarif örnekleri olan bu değirmenler, eskiden buğday öğütmek için kullanılıyordu. Bugün ise Alaçatı'nın silüetini oluşturan en ikonik yapılar olarak misafirlerini ağırlıyor.",
+          "visitor_tip": "Giriş ücretsizdir. Fotoğraf çekimi için gün batımından 30 dakika öncesi en ideal zamandır.",
+          "distance": "5 dk (Yürüyerek)",
+          "best_time": "Gün Batımı",
+          "features": [
+            "Tarihi Doku",
+            "Manzara Noktası",
+            "Eski Mimari"
+          ]
+        },
+        {
+          "id": "pazaryeri",
+          "title": "Pazaryeri Camii",
+          "location": "Alaçatı Çarşı",
+          "period": "1874",
+          "description": "Eski bir Rum kilisesinden camiye dönüştürülen yapı, içindeki korunmuş ikonografileriyle hoşgörü ve çok kültürlülüğün sembolüdür.",
+          "details": "Ayios Konstantinos Kilisesi olarak inşa edilen yapı, bugün hala hem Hristiyan hem de İslam kültürünün izlerini aynı çatı altında taşımasıyla dünya üzerinde nadir rastlanan bir hoşgörü örneğidir.",
+          "visitor_tip": "Avludaki 'podima' adı verilen çakıl taşı mozaik işçiliğine dikkat edin.",
+          "distance": "2 dk (Yürüyerek)",
+          "best_time": "Öğle Saatleri",
+          "features": [
+            "Kültürel Miras",
+            "Mozaik Sanatı",
+            "Hoşgörü Sembolü"
+          ]
+        },
+        {
+          "id": "castle",
+          "title": "Çeşme Kalesi",
+          "location": "Çeşme Sahil",
+          "period": "1508",
+          "description": "II. Bayezid döneminde inşa edilen kale, bugün müzesi ve eşsiz liman manzarasıyla tarihe tanıklık ediyor.",
+          "details": "Osmanlı mimarisinin en sağlam kale yapılarından biri olan Çeşme Kalesi, içinde yer alan arkeoloji müzesiyle bölgenin binlerce yıllık geçmişine ışık tutuyor.",
+          "visitor_tip": "Müze kart geçerlidir. Kalenin en üst burçlarından Sakız Adası'nı izlemeyi unutmayın.",
+          "distance": "15 dk (Araçla)",
+          "best_time": "Sabah Saatleri",
+          "features": [
+            "Arkeoloji Müzesi",
+            "Deniz Manzarası",
+            "Osmanlı Mimarisi"
+          ]
+        },
+        {
+          "id": "saat-kulesi",
+          "title": "Çeşme Saat Kulesi",
+          "location": "Çeşme Merkez",
+          "description": "19. yüzyıldan kalma Osmanlı saat kulesi, Çeşme'nin kalbinde tarihin nabzını tutuyor.",
+          "details": "1901 yılında inşa edilen saat kulesi, şehrin simgesi olmasının yanı sıra çevresindeki çarşısı ve canlı pazar alanıyla Çeşme'ye özgü bir atmosfer sunuyor.",
+          "visitor_tip": "Çevre sokakları keşfederek geleneksel mücevher ve Çeşme biberi dükkanlarını ziyaret edin.",
+          "distance": "15 dk (Araçla)",
+          "best_time": "Sabah",
+          "features": [
+            "Osmanlı Mimarisi",
+            "Canlı Çarşı",
+            "Fotoğraf Noktası"
+          ]
+        }
+      ],
+      "sports": [
+        {
+          "id": "windsurf",
+          "title": "Rüzgar Sörfü",
+          "location": "Alaçatı Sörf Körfezi",
+          "description": "Dünyanın en iyi sörf noktalarından biri. Sığ suyu ve yılın 300 günü esen kesintisiz rüzgarıyla adrenalin tutkunlarının merkezidir.",
+          "details": "Alaçatı'yı dünyaya tanıtan sörf körfezi, sadece profesyoneller için değil, sığ ve dalgasız yapısıyla yeni başlayanlar için de dünyanın en güvenli eğitim alanlarından biridir.",
+          "distance": "10 dk (Araçla)",
+          "best_time": "Öğleden Sonra",
+          "features": [
+            "Dünya Standartları",
+            "Eğitim İmkanı",
+            "Sürekli Rüzgar"
+          ]
+        },
+        {
+          "id": "kitesurf",
+          "title": "Kitesurf",
+          "location": "Alaçatı Körfezi",
+          "description": "Gökyüzü ve denizi aynı anda hissedeceğiniz, adrenalin dozu yüksek bir Ege deneyimi.",
+          "details": "Alaçatı rüzgarları kitesurf için de mükemmel bir ortam yaratıyor. Deneyimli instructörler eşliğinde ilk uçuşunuzu yapabilirsiniz.",
+          "distance": "10 dk (Araçla)",
+          "best_time": "Öğleden Sonra",
+          "features": [
+            "Adrenalin",
+            "Eğitim İmkanı",
+            "Ege Manzarası"
+          ]
+        }
+      ],
+      "beaches": [
+        {
+          "id": "ilica",
+          "title": "Ilıca Plajı",
+          "location": "Çeşme / Ilıca",
+          "description": "Deniz içinden çıkan termal kaynakları sayesinde suyu sıcak ve şifalıdır. Maldivler'i aratmayan turkuaz sığ suyuyla ünlüdür.",
+          "details": "Ilıca'yı özel kılan, deniz tabanından kaynayan sıcak termal sulardır. Bu özellik plajı sadece bir güneşlenme noktası değil, aynı zamanda doğal bir SPA merkezine dönüştürür.",
+          "distance": "8 dk (Araçla)",
+          "best_time": "Hafta İçi",
+          "features": [
+            "Termal Kaynak",
+            "Turkuaz Su",
+            "İnce Kum"
+          ]
+        },
+        {
+          "id": "altinkum",
+          "title": "Altınkum Plajı",
+          "location": "Çeşme / Altınkum",
+          "description": "Adını altın sarısı kumlarından alan plaj, kuzey rüzgarlarına kapalı yapısı ve serin suyuyla yaz sıcağında ferahlatıcı bir duraktır.",
+          "details": "Ege'nin en soğuk ama en berrak sularından birine sahip olan Altınkum, denizin dibindeki her bir kum tanesini görebileceğiniz kadar şeffaf bir suya sahiptir.",
+          "distance": "20 dk (Araçla)",
+          "best_time": "Sabah 09:00",
+          "features": [
+            "Berrak Deniz",
+            "Serin Su",
+            "Altın Sarısı Kum"
+          ]
+        },
+        {
+          "id": "delikli",
+          "title": "Delikli Koy",
+          "location": "Alaçatı / Port",
+          "description": "Dalgaların aşındırdığı beyaz kayalıklar ve doğal köprüsüyle ünlü, kalabalıktan uzak, bakir bir doğa harikası.",
+          "details": "Adını kayaların arasındaki doğal boşluktan alan koy, bembeyaz kalker yapısıyla misafirlerine bambaşka bir gezegendeymiş hissi verir. Tamamen doğal ve tesisleşmemiş bir alandır.",
+          "distance": "15 dk (Araçla)",
+          "best_time": "Gün Batımı",
+          "features": [
+            "Doğal Köprü",
+            "Sessiz Ortam",
+            "Kamp Uygun"
+          ]
+        },
+        {
+          "id": "akkum",
+          "title": "Akkum Plajı",
+          "location": "Çeşme / Akkum",
+          "description": "Sığ turkuaz sularıyla ailelerin gözdesi; bembeyaz kumu ve sakin körfez yapısıyla huzurun ta kendisi.",
+          "details": "Çeşme'nin en sakin ve doğal plajlarından biri. Taşlı yapısı olmayan ince kumlu plajıyla yüzme için idealdir.",
+          "distance": "12 dk (Araçla)",
+          "best_time": "Sabah",
+          "features": [
+            "Turkuaz Su",
+            "İnce Kum",
+            "Aile Dostu"
+          ]
+        },
+        {
+          "id": "boyalik",
+          "title": "Boyalık Plajı",
+          "location": "Çeşme / Boyalık",
+          "description": "Çeşme şehir merkezine yakınlığı ve berrak sularıyla günlük deniz tatili için ideal, hareketli bir sahil.",
+          "details": "Boyalık, şezlong ve şemsiye kiralama imkânı, kafe ve restoranlarıyla eksiksiz bir plaj altyapısına sahiptir.",
+          "distance": "10 dk (Araçla)",
+          "best_time": "Öğlen",
+          "features": [
+            "Tesisli Plaj",
+            "Berrak Deniz",
+            "Merkeze Yakın"
+          ]
+        }
+      ],
+      "gourmet": [
+        {
+          "id": "haci-memis",
+          "title": "Hacı Memiş Mutfağı",
+          "location": "Hacı Memiş Mah.",
+          "description": "Alaçatı'nın gerçek lezzet durağı. Yerel otların ve geleneksel Ege tariflerinin modern gurme yorumlarını bulabilirsiniz.",
+          "details": "Antikacıların ve sanat galerilerinin arasında gizlenmiş Hacı Memiş, Alaçatı'nın kalabalığından uzaklaşıp gerçek Ege mutfağına dokunabileceğiniz en samimi noktadır.",
+          "visitor_tip": "Kabak Çiçeği Dolması ve Şevketi Bostan'ı mutlaka deneyin.",
+          "distance": "3 dk (Yürüyerek)",
+          "best_time": "Akşam Yemeği",
+          "features": [
+            "Yerel Otlar",
+            "Geleneksel Mutfak",
+            "Butik Mekan"
+          ]
+        },
+        {
+          "id": "agrilia",
+          "title": "Agrilia Restaurant",
+          "location": "Alaçatı Çarşı",
+          "description": "Alaçatı'nın zarif atmosferinde Ege'nin en taze deniz ürünleri ve otantik Rum-Türk mutfak sentezi.",
+          "details": "Taş bir binanın içine gizlenmiş Agrilia, mavi örtülü masaları ve bahçe aydınlatmasıyla Alaçatı'nın en romantik restoranlarından biridir.",
+          "distance": "3 dk (Yürüyerek)",
+          "best_time": "Akşam Yemeği",
+          "features": [
+            "Deniz Ürünleri",
+            "Romantik Ambiyans",
+            "Bahçe"
+          ]
+        },
+        {
+          "id": "asma-yapragi",
+          "title": "Asma Yaprağı",
+          "location": "Alaçatı Sokakları",
+          "description": "Sarmaşıklarla örtülü taş duvarlar arasında köy sofrasının samimiyeti; Ege'nin ruhunu tabağa taşıyan mekan.",
+          "details": "Kabak çiçeği, enginar zeytinyağlısı ve ev yapımı tatlılarıyla gerçek Ege lezzetlerini arayanlara mükemmel bir adres.",
+          "distance": "4 dk (Yürüyerek)",
+          "best_time": "Öğle & Akşam",
+          "features": [
+            "Ev Yemekleri",
+            "Zeytinyağlılar",
+            "Otantik"
+          ]
+        },
+        {
+          "id": "tike",
+          "title": "Tike Restaurant",
+          "location": "Alaçatı Merkez",
+          "description": "Et severlerin adresi. Mangal ustalığı ve kaliteli malzeme seçimiyle Alaçatı'nın en beğenilen et restoranı.",
+          "details": "Kasaptan gelen taze etleri mangalda pişiren Tike, köfte, kuzu pirzola ve şiş kebabıyla damakları fethediyor.",
+          "distance": "5 dk (Yürüyerek)",
+          "best_time": "Akşam Yemeği",
+          "features": [
+            "Et Mangal",
+            "Taze Malzeme",
+            "Geniş Menü"
+          ]
+        },
+        {
+          "id": "biberiye",
+          "title": "Biberiye Restaurant",
+          "location": "Alaçatı Çarşı",
+          "description": "Çiçekli avlusu ve Ege otlarından ilham alan menüsüyle Alaçatı'nın en şık ve rafine restoranlarından biri.",
+          "details": "Mevsimsel malzemeler ve yaratıcı sunum felsefesiyle Biberiye, Alaçatı'da fine dining deneyimi arayanların ilk durağı.",
+          "distance": "5 dk (Yürüyerek)",
+          "best_time": "Akşam Yemeği",
+          "features": [
+            "Fine Dining",
+            "Mevsimsel Menü",
+            "Avlu Bahçe"
+          ]
+        },
+        {
+          "id": "dalyan",
+          "title": "Dalyan Marina Restoranları",
+          "location": "Çeşme Marina",
+          "description": "Yat limanı manzarasında taze balık ve deniz ürünleri; Çeşme'nin gözde sahil restoranları burada sıralanıyor.",
+          "details": "Dalyan'daki sahil restoranları, günün yorgunluğunu atmak için mükemmel bir yer; özellikle günbatımı saatlerinde.",
+          "distance": "15 dk (Araçla)",
+          "best_time": "Akşam",
+          "features": [
+            "Marina Manzarası",
+            "Balık & Deniz Ürünleri",
+            "Günbatımı"
+          ]
+        }
+      ],
+      "activities": [
+        {
+          "id": "marina",
+          "title": "Çeşme Marina",
+          "location": "Çeşme Liman",
+          "description": "Türkiye'nin en prestijli marinaları arasında yer alan Çeşme Marina, yat turlarından canlı çarşısına kadar her şeyi sunuyor.",
+          "details": "Marina boyunca uzanan yürüyüş yolu, butik mağazalar, kafeler ve gün batımı manzarasıyla keyifli bir akşam geçirmenin en iyi yolu.",
+          "distance": "15 dk (Araçla)",
+          "best_time": "Akşam",
+          "features": [
+            "Yat Turu",
+            "Alışveriş",
+            "Canlı Atmosfer"
+          ]
+        },
+        {
+          "id": "alacati-port",
+          "title": "Alaçatı Port",
+          "location": "Alaçatı Liman",
+          "description": "Sörf okulları, beach barlar ve müzik festivalleriyle Alaçatı'nın eğlence merkezi — gündüz sörf, gece parti.",
+          "details": "Her yaz düzenlenen Alaçatı Ot Festivali ve surf yarışmaları burada gerçekleşir. Alaçatı'nın dinamik ve genç enerjisini hissetmek için ideal nokta.",
+          "distance": "10 dk (Araçla)",
+          "best_time": "Öğleden Sonra & Gece",
+          "features": [
+            "Sörf Okulu",
+            "Beach Bar",
+            "Festival Alanı"
+          ]
+        }
+      ]
+    },
+    "detail": {
+      "back": "KEŞİF LİSTESİNE GERİ DÖN",
+      "weather_tip": "Ziyaret etmek için bugün mükemmel bir gün.",
+      "weather_title": "Alaçatı'da Hava",
+      "weather_status": "Güneşli ve Açık",
+      "story_title": "Hikayesi",
+      "info_title": "Ziyaret Bilgileri",
+      "get_directions": "Yol Tarifi Al",
+      "hotel_recommendation": "AlacaAt Alaçatı Hotel olarak bu rotayı tavsiye ederiz."
+    }
+  },
+  "testimonials": {
+    "experience_subtitle": "Deneyimi",
+    "score_label": "Misafir Puanı",
+    "tripadvisor_global": "TripAdvisor Global"
+  }
+}

@@ -1,0 +1,521 @@
+{
+  "reservation": {
+    "dateRange": "Date Range",
+    "checkIn": "Check-in Date",
+    "checkOut": "Check-out Date",
+    "selectCheckIn": "Select Check-in Date",
+    "selectCheckOut": "Select Check-out Date",
+    "guests": "Guests",
+    "person": "Person",
+    "adult": "Adult",
+    "adultDesc": "12+ years",
+    "child": "Child",
+    "free": "Free",
+    "childFreeDesc": "0-5 Years",
+    "childDesc": "0-11 years",
+    "perNight": "Per Night",
+    "priceFrom": "Starting from",
+    "discount": "50% Discount",
+    "childDiscountDesc": "6-11 Years",
+    "discountBadge": "15% Off",
+    "title": "Available Rooms",
+    "notFound": "No Rooms Found",
+    "notFoundDesc": "There are no available rooms matching your criteria for the selected dates. Please try different dates.",
+    "selectRoom": "Select Room",
+    "checkout": {
+      "title": "Complete Your Reservation",
+      "subtitle": "Please fill in the information below completely",
+      "summary": "Reservation Summary",
+      "guestInfo": "Guest Information",
+      "payment": "Payment",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phone": "Phone",
+      "requests": "Special Requests",
+      "creditCard": "Credit Card",
+      "bankTransfer": "Bank Transfer / EFT",
+      "complete": "Complete Reservation",
+      "nights": "{count} Nights",
+      "total": "Total Amount",
+      "iban": "IBAN",
+      "bankInfo": "Bank Information"
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "rooms": "Rooms",
+    "gallery": "Gallery",
+    "about": "About",
+    "contact": "Contact",
+    "bookNow": "Book Now",
+    "guide": "Guide"
+  },
+  "hero": {
+    "welcome": "Welcome",
+    "discover": "Discover",
+    "bookYourStay": "Our Rooms"
+  },
+  "home": {
+    "welcomeTitle": "Welcome",
+    "welcomeSubtitle": "A boutique accommodation experience in the unique beauty of the Mediterranean",
+    "featuredRooms": "Our Rooms",
+    "featuredRoomsSubtitle": "Discover our carefully designed rooms offering unique comfort",
+    "amenities": "Amenities",
+    "amenitiesSubtitle": "Services that will make your stay unforgettable",
+    "galleryTitle": "Gallery",
+    "gallerySubtitle": "Snapshots from our hotel",
+    "testimonialsTitle": "Guest Reviews",
+    "testimonialsSubtitle": "From our guests' experiences",
+    "locationTitle": "Location",
+    "locationSubtitle": "Visit us",
+    "ctaTitle": "Live Your Dream Vacation",
+    "ctaSubtitle": "Book now for a tailor-made accommodation experience",
+    "viewAll": "View All",
+    "viewDetails": "View Details",
+    "learnMore": "Learn More"
+  },
+  "rooms": {
+    "title": "Rooms & Suites",
+    "subtitle": "Our boutique rooms, each carefully designed",
+    "guests": "Guests",
+    "size": "sqm",
+    "amenities": "Amenities",
+    "viewRoom": "View Room",
+    "bookRoom": "Book This Room",
+    "otherRooms": "Other Rooms You Might Like",
+    "maxGuests": "Max. {count} Guests",
+    "roomSize": "{size} sqm",
+    "checkIn": "Check-in",
+    "checkOut": "Check-out",
+    "priceFrom": "Price From",
+    "priceOnRequest": "Prices vary by season. Please contact us for exact pricing.",
+    "viewDetails": "View Details",
+    "perNight": "/ night",
+    "guestReviews": "Guest Experiences",
+    "noReviews": "No reviews yet."
+  },
+  "gallery": {
+    "title": "Photo Gallery",
+    "subtitle": "Discover the enchanting atmosphere of our hotel",
+    "all": "All",
+    "exterior": "Exterior",
+    "interior": "Interior",
+    "room": "Rooms",
+    "restaurant": "Restaurant",
+    "pool": "Pool",
+    "spa": "Spa",
+    "view": "Views"
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Our Story",
+    "storyTitle": "Our Story",
+    "valuesTitle": "Our Values",
+    "valuesSubtitle": "The core values that set us apart",
+    "established": "Serving since {year}"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "We'd love to hear from you",
+    "titleMain": "Get in",
+    "titleSub": "Touch With Us",
+    "badge": "CONTACT",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email",
+    "addressLabel": "Address",
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "subject": "Subject",
+      "message": "Your Message",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "success": "Your message has been sent successfully!",
+      "error": "An error occurred. Please try again."
+    },
+    "info": {
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "hours": "Reception Hours",
+      "hoursValue": "24/7 at your service"
+    },
+    "mapTitle": "Our Location"
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "contactInfo": "Contact Info",
+    "followUs": "Follow Us",
+    "rights": "All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "goBack": "Go Back",
+    "close": "Close",
+    "previous": "Previous",
+    "next": "Next",
+    "stars": "Stars"
+  },
+  "amenityNames": {
+    "wifi": "Wi-Fi",
+    "minibar": "Minibar",
+    "safe": "Safe",
+    "ac": "Air Conditioning",
+    "tv": "TV",
+    "balcony": "Balcony or Terrace",
+    "sea-view": "Sea View",
+    "garden-view": "Garden View",
+    "room-service": "Room Service",
+    "jacuzzi": "Jacuzzi",
+    "champagne": "Champagne Service",
+    "extra-bed": "Extra Bed",
+    "shower": "Shower",
+    "tile-floor": "Marble / Tile Floor",
+    "pillow-menu": "Pillow Menu",
+    "bathroom": "Bathroom",
+    "phone": "Telephone",
+    "hairdryer": "Hairdryer",
+    "satellite": "Satellite Channels",
+    "wardrobe": "Wardrobe",
+    "smoke-detector": "Smoke Detector",
+    "soundproof": "Soundproofing",
+    "towels": "Towels",
+    "slippers": "Slippers",
+    "toiletries": "Free Toiletries",
+    "bottled-water": "Free Bottled Water",
+    "desk": "Desk",
+    "seating-area": "Seating Area",
+    "iron": "Iron & Ironing Board",
+    "fire-extinguisher": "Fire Extinguisher",
+    "first-aid": "First Aid Kit",
+    "window-guards": "Window Guards",
+    "twin-beds": "2 Single Beds",
+    "double-bed": "1 Double Bed",
+    "pool-view": "Pool View"
+  },
+  "guide": {
+    "badge": "CURATED EXPERIENCES",
+    "title_1": "The Rhythm of",
+    "title_2": "Life.",
+    "titleFull": "The Rhythm of Life.",
+    "description": "From the wind of surfing to the silence of history, a different story is hidden in every corner of Alaçatı. Which is your route?",
+    "empty": "This story hasn't been written yet...",
+    "loading": "Preparing discovery details...",
+    "return_all": "RETURN TO ALL DISCOVERIES",
+    "other_places": "OTHER STOPS",
+    "categories": {
+      "all": "ALL",
+      "historicalPlaces": "HISTORY",
+      "sports": "SURF & SPORTS",
+      "beaches": "BEACHES",
+      "gourmet": "GOURMET",
+      "activities": "ACTIVITIES"
+    },
+    "places": {
+      "historicalPlaces": [
+        {
+          "id": "windmills",
+          "title": "Historic Alaçatı Windmills",
+          "location": "Alaçatı Entrance",
+          "period": "1850s",
+          "description": "Alaçatı's signature reaching to the sky. Transforming wind into abundance for over 150 years, these structures offer a unique terrace for sunset.",
+          "details": "These windmills, which are the most elegant examples of stonemasonry, were formerly used to grind wheat. Today, they welcome guests as the most iconic structures forming the silhouette of Alaçatı.",
+          "visitor_tip": "Entrance is free. The ideal time for photography is 30 minutes before sunset.",
+          "distance": "5 min (Walk)",
+          "best_time": "Sunset",
+          "features": [
+            "Historical Texture",
+            "Viewpoint",
+            "Old Architecture"
+          ]
+        },
+        {
+          "id": "pazaryeri",
+          "title": "Pazaryeri Mosque",
+          "location": "Alaçatı Bazaar",
+          "period": "1874",
+          "description": "Converted from an old Greek church to a mosque, this structure is a symbol of tolerance and multiculturalism with its preserved iconographies.",
+          "details": "Originally built as Ayios Konstantinos Church, the structure today still carries traces of both Christian and Islamic culture under the same roof, standing as a rare example of tolerance in the world.",
+          "visitor_tip": "Pay attention to the pebble mosaic work called 'podima' in the courtyard.",
+          "distance": "2 min (Walk)",
+          "best_time": "Noon",
+          "features": [
+            "Cultural Heritage",
+            "Mosaic Art",
+            "Symbol of Tolerance"
+          ]
+        },
+        {
+          "id": "castle",
+          "title": "Çeşme Castle",
+          "location": "Çeşme Coast",
+          "period": "1508",
+          "description": "Built during the reign of Bayezid II, the castle witnesses history today with its museum and unique harbor view.",
+          "details": "One of the most robust castle structures of Ottoman architecture, Çeşme Castle sheds light on the region's thousands of years of history with the archaeology museum located inside.",
+          "visitor_tip": "Museum card is valid. Do not forget to watch Chios Island from the highest bastions of the castle.",
+          "distance": "15 min (Drive)",
+          "best_time": "Morning",
+          "features": [
+            "Archaeology Museum",
+            "Sea View",
+            "Ottoman Architecture"
+          ]
+        },
+        {
+          "id": "saat-kulesi",
+          "title": "Çeşme Clock Tower",
+          "location": "Çeşme Center",
+          "description": "A 19th-century Ottoman clock tower holding the pulse of history in the heart of Çeşme.",
+          "details": "Built in 1901, the clock tower is not only a symbol of the city but also offers an atmosphere unique to Çeşme with its surrounding bazaar and vibrant marketplace.",
+          "visitor_tip": "Explore the surrounding streets to visit traditional jewelry and Çeşme pepper shops.",
+          "distance": "15 min (Drive)",
+          "best_time": "Morning",
+          "features": [
+            "Ottoman Architecture",
+            "Vibrant Bazaar",
+            "Photo Spot"
+          ]
+        }
+      ],
+      "sports": [
+        {
+          "id": "windsurf",
+          "title": "Windsurfing",
+          "location": "Alaçatı Surf Bay",
+          "description": "One of the best surfing spots in the world. It is the center for adrenaline enthusiasts with its shallow water and continuous wind blowing 300 days a year.",
+          "details": "Introducing Alaçatı to the world, the surf bay is not only for professionals but also one of the safest training areas in the world for beginners with its shallow and waveless structure.",
+          "distance": "10 min (Drive)",
+          "best_time": "Afternoon",
+          "features": [
+            "World Class",
+            "Training Available",
+            "Continuous Wind"
+          ]
+        },
+        {
+          "id": "kitesurf",
+          "title": "Kitesurfing",
+          "location": "Alaçatı Bay",
+          "description": "A high-adrenaline Aegean experience where you will feel the sky and the sea at the same time.",
+          "details": "Alaçatı winds also create a perfect environment for kitesurfing. You can make your first flight accompanied by experienced instructors.",
+          "distance": "10 min (Drive)",
+          "best_time": "Afternoon",
+          "features": [
+            "Adrenaline",
+            "Training Available",
+            "Aegean View"
+          ]
+        }
+      ],
+      "beaches": [
+        {
+          "id": "ilica",
+          "title": "Ilıca Beach",
+          "location": "Çeşme / Ilıca",
+          "description": "Its water is warm and healing thanks to the thermal springs emerging from the sea. It is famous for its turquoise shallow water reminiscent of the Maldives.",
+          "details": "What makes Ilıca special are the hot thermal waters boiling from the seabed. This feature turns the beach into a natural SPA center rather than just a sunbathing spot.",
+          "distance": "8 min (Drive)",
+          "best_time": "Weekdays",
+          "features": [
+            "Thermal Spring",
+            "Turquoise Water",
+            "Fine Sand"
+          ]
+        },
+        {
+          "id": "altinkum",
+          "title": "Altınkum Beach",
+          "location": "Çeşme / Altınkum",
+          "description": "Named after its golden yellow sands, the beach is a refreshing stop in the summer heat with its cool water and structure closed to northern winds.",
+          "details": "Having one of the coldest but clearest waters of the Aegean, Altınkum has a water so transparent that you can see every single grain of sand on the seabed.",
+          "distance": "20 min (Drive)",
+          "best_time": "Morning 09:00",
+          "features": [
+            "Clear Sea",
+            "Cool Water",
+            "Golden Sand"
+          ]
+        },
+        {
+          "id": "delikli",
+          "title": "Delikli Bay",
+          "location": "Alaçatı / Port",
+          "description": "A virgin natural wonder, away from the crowds, famous for its white cliffs eroded by waves and its natural bridge.",
+          "details": "Taking its name from the natural gap between the rocks, the bay gives its guests the feeling of being on a completely different planet with its pure white limestone structure. It is a completely natural and non-commercial area.",
+          "distance": "15 min (Drive)",
+          "best_time": "Sunset",
+          "features": [
+            "Natural Bridge",
+            "Quiet Environment",
+            "Camping Suitable"
+          ]
+        },
+        {
+          "id": "akkum",
+          "title": "Akkum Beach",
+          "location": "Çeşme / Akkum",
+          "description": "A favorite of families with its shallow turquoise waters; the epitome of peace with its pure white sand and calm gulf structure.",
+          "details": "One of the calmest and most natural beaches of Çeşme. It is ideal for swimming with its fine sandy beach that is not stony.",
+          "distance": "12 min (Drive)",
+          "best_time": "Morning",
+          "features": [
+            "Turquoise Water",
+            "Fine Sand",
+            "Family Friendly"
+          ]
+        },
+        {
+          "id": "boyalik",
+          "title": "Boyalık Beach",
+          "location": "Çeşme / Boyalık",
+          "description": "An active beach ideal for a daily sea holiday with its proximity to Çeşme city center and clear waters.",
+          "details": "Boyalık has a complete beach infrastructure with sunbed and umbrella rental facilities, cafes, and restaurants.",
+          "distance": "10 min (Drive)",
+          "best_time": "Noon",
+          "features": [
+            "Beach with Facilities",
+            "Clear Sea",
+            "Close to Center"
+          ]
+        }
+      ],
+      "gourmet": [
+        {
+          "id": "haci-memis",
+          "title": "Hacı Memiş Cuisine",
+          "location": "Hacı Memiş Neighborhood",
+          "description": "The real flavor stop of Alaçatı. You can find modern gourmet interpretations of local herbs and traditional Aegean recipes.",
+          "details": "Hidden among antique shops and art galleries, Hacı Memiş is the most intimate point where you can get away from the crowd of Alaçatı and touch real Aegean cuisine.",
+          "visitor_tip": "Be sure to try Stuffed Zucchini Flowers and Şevketi Bostan.",
+          "distance": "3 min (Walk)",
+          "best_time": "Dinner",
+          "features": [
+            "Local Herbs",
+            "Traditional Cuisine",
+            "Boutique Venue"
+          ]
+        },
+        {
+          "id": "agrilia",
+          "title": "Agrilia Restaurant",
+          "location": "Alaçatı Bazaar",
+          "description": "The freshest seafood of the Aegean and authentic Greek-Turkish culinary synthesis in the elegant atmosphere of Alaçatı.",
+          "details": "Hidden inside a stone building, Agrilia is one of the most romantic restaurants in Alaçatı with its blue-covered tables and garden lighting.",
+          "distance": "3 min (Walk)",
+          "best_time": "Dinner",
+          "features": [
+            "Seafood",
+            "Romantic Ambiance",
+            "Garden"
+          ]
+        },
+        {
+          "id": "asma-yapragi",
+          "title": "Asma Yaprağı",
+          "location": "Alaçatı Streets",
+          "description": "The sincerity of a village table among ivy-covered stone walls; the place that brings the spirit of the Aegean to the plate.",
+          "details": "A perfect address for those looking for real Aegean flavors with zucchini flowers, artichoke in olive oil, and homemade desserts.",
+          "distance": "4 min (Walk)",
+          "best_time": "Lunch & Dinner",
+          "features": [
+            "Home Cooking",
+            "Olive Oil Dishes",
+            "Authentic"
+          ]
+        },
+        {
+          "id": "tike",
+          "title": "Tike Restaurant",
+          "location": "Alaçatı Center",
+          "description": "The address for meat lovers. Alaçatı's most acclaimed meat restaurant with its barbecue mastery and quality ingredient selection.",
+          "details": "Cooking fresh meat from the butcher on the grill, Tike conquers palates with meatballs, lamb chops, and shish kebab.",
+          "distance": "5 min (Walk)",
+          "best_time": "Dinner",
+          "features": [
+            "Meat Grill",
+            "Fresh Ingredients",
+            "Wide Menu"
+          ]
+        },
+        {
+          "id": "biberiye",
+          "title": "Biberiye Restaurant",
+          "location": "Alaçatı Bazaar",
+          "description": "One of the most elegant and refined restaurants in Alaçatı with its flowered courtyard and menu inspired by Aegean herbs.",
+          "details": "With its seasonal ingredients and creative presentation philosophy, Biberiye is the first stop for those seeking a fine dining experience in Alaçatı.",
+          "distance": "5 min (Walk)",
+          "best_time": "Dinner",
+          "features": [
+            "Fine Dining",
+            "Seasonal Menu",
+            "Courtyard Garden"
+          ]
+        },
+        {
+          "id": "dalyan",
+          "title": "Dalyan Marina Restaurants",
+          "location": "Çeşme Marina",
+          "description": "Fresh fish and seafood with a view of the marina; Çeşme's favorite coastal restaurants are lined up here.",
+          "details": "The coastal restaurants in Dalyan are a perfect place to relieve the tiredness of the day; especially during sunset hours.",
+          "distance": "15 min (Drive)",
+          "best_time": "Evening",
+          "features": [
+            "Marina View",
+            "Fish & Seafood",
+            "Sunset"
+          ]
+        }
+      ],
+      "activities": [
+        {
+          "id": "marina",
+          "title": "Çeşme Marina",
+          "location": "Çeşme Port",
+          "description": "Ranking among the most prestigious marinas in Turkey, Çeşme Marina offers everything from yacht tours to a vibrant bazaar.",
+          "details": "The walking path along the marina is the best way to spend a pleasant evening with its boutique shops, cafes, and sunset view.",
+          "distance": "15 min (Drive)",
+          "best_time": "Evening",
+          "features": [
+            "Yacht Tour",
+            "Shopping",
+            "Vibrant Atmosphere"
+          ]
+        },
+        {
+          "id": "alacati-port",
+          "title": "Alaçatı Port",
+          "location": "Alaçatı Port",
+          "description": "The entertainment center of Alaçatı with surf schools, beach bars, and music festivals — surf by day, party by night.",
+          "details": "The Alaçatı Herb Festival and surf competitions held every summer take place here. It is the ideal point to feel the dynamic and young energy of Alaçatı.",
+          "distance": "10 min (Drive)",
+          "best_time": "Afternoon & Night",
+          "features": [
+            "Surf School",
+            "Beach Bar",
+            "Festival Area"
+          ]
+        }
+      ]
+    },
+    "detail": {
+      "back": "RETURN TO DISCOVERY LIST",
+      "weather_tip": "It's a perfect day to visit.",
+      "weather_title": "Weather in Alaçatı",
+      "weather_status": "Sunny and Clear",
+      "story_title": "Its Story",
+      "info_title": "Visitor Information",
+      "get_directions": "Get Directions",
+      "hotel_recommendation": "As AlacaAt Alaçatı Hotel, we recommend this route."
+    }
+  },
+  "testimonials": {
+    "experience_subtitle": "Experience",
+    "score_label": "Guest Rating",
+    "tripadvisor_global": "TripAdvisor Global"
+  }
+}

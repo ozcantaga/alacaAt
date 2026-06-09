@@ -1,0 +1,37 @@
+@layer base {
+  body.theme-dark {
+    /* Dark Modda Sayfa Zemin Rengi */
+    --color-page-bg: #3D405B;
+    
+    /* Dark Modda Dış Metinler Puslu Beyaz Olacak */
+    --text-heading: rgba(255, 255, 255, 0.85);
+    --text-body: rgba(255, 255, 255, 0.85);
+    --text-muted: rgba(255, 255, 255, 0.7);
+
+    /* Okunabilirlik için kutucukların ve butonların zeminini Koyu Mavi yapıyoruz */
+    --ui-bg-elevated: #1b4965;
+    --color-primary-400: #285b7e;
+    --color-primary-500: #1b4965;
+    --color-primary-600: #3D405B;
+    
+    /* İkonlar karanlık modda beyaz olsun */
+    --icon-primary: var(--text-inverse);
+
+    /* Nuxt UI Form Elemanlarını Koyu Moda Uyumlu Hale Getir */
+    --ui-text-gray-700: var(--text-inverse); /* Etiketler için */
+    --ui-text-gray-900: var(--text-inverse); /* Girilen metinler için */
+    --ui-text-gray-500: rgba(255, 255, 255, 0.6); /* Placeholder için */
+    --ui-bg-white: rgba(255, 255, 255, 0.05); /* İnput zeminleri için */
+    --ui-border-gray-300: rgba(255, 255, 255, 0.2); /* İnput kenarlıkları için */
+  }
+
+  body.theme-dark label,
+  body.theme-dark input,
+  body.theme-dark textarea {
+    color: var(--text-inverse) !important;
+  }
+  body.theme-dark input::placeholder,
+  body.theme-dark textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+  }
+}
