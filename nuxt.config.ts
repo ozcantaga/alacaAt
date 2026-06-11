@@ -91,7 +91,7 @@ export default defineNuxtConfig({
 
   // ─── Image Optimization ──────────────────────────────────────────
   image: {
-    // provider: 'vercel', // Vercel optimization production'da otomatik devreye girer, lokalde çalışması için kapalı.
+  provider: 'vercel', 
     quality: 60,
     format: ['webp', 'avif'],
     screens: {
