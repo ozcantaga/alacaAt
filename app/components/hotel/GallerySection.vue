@@ -34,14 +34,31 @@
           format="webp"
           sizes="sm:50vw md:33vw lg:800px"
         />
-        <!-- Hover Overlay -->
+
+        <!-- Alt gradient + içerik overlay
+             CSS media query ile:
+             Mobil: her zaman görünür
+             Masaüstü: sadece hover'da -->
+        <div class="gallery-overlay absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/65 via-black/10 to-transparent transition-opacity duration-500">
+          <div class="p-3 sm:p-4">
+            <p class="text-white text-xs sm:text-sm font-medium leading-snug line-clamp-2 drop-shadow">
+              {{ t(item.alt) }}
+            </p>
+            <p v-if="item.description" class="text-white/75 text-[11px] mt-0.5 line-clamp-1 drop-shadow">
+              {{ t(item.description) }}
+            </p>
+          </div>
+        </div>
+
+        <!-- Büyüteç: masaüstü hover'da görünür, mobilde gizli -->
         <div class="absolute inset-0 transition-all duration-500 flex items-center justify-center">
           <UIcon
             name="i-heroicons-magnifying-glass-plus"
-            class="w-10 h-10 opacity-0 group-hover:opacity-100 transition-all duration-500 scale-75 group-hover:scale-100"
+            class="w-10 h-10 text-white opacity-0 group-hover:opacity-100 transition-all duration-500 scale-75 group-hover:scale-100 hidden md:block"
           />
         </div>
       </div>
+
     </div>
 
     <!-- Lightbox Modal — ClientOnly: UModal portal SSR'da hydration mismatch yaratır -->
@@ -153,3 +170,20 @@ const nextImage = () => {
     : 0
 }
 </script>
+
+<style scoped>
+/* Mobil: overlay her zaman görünür */
+.gallery-overlay {
+  opacity: 1;
+}
+
+/* Masaüstü (768px+): başlangıçta gizli, hover'da ortaya çıkar */
+@media (min-width: 768px) {
+  .gallery-overlay {
+    opacity: 0;
+  }
+  .group:hover .gallery-overlay {
+    opacity: 1;
+  }
+}
+</style>

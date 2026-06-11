@@ -1,22 +1,25 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount, nextTick } from 'vue'
 
 const route = useRoute()
 const router = useRouter()
+const localePath = useLocalePath()
 const { t } = useI18n()
 const { config, getRoom, t: tRoom, formatHotelName } = useHotelConfig()
 const { reservationState, basePrices, fetchBasePrices } = useReservation()
 
 const roomSlug = route.query.room as string
 const room = computed(() => getRoom(roomSlug))
+// Navigasyon sırasında içerik kaybolmasın diye stable ref
+const stableRoom = ref(getRoom(roomSlug))
 
 // Image Slider
 const currentImageIndex = ref(0)
 const nextImage = () => {
-  if (room.value) currentImageIndex.value = (currentImageIndex.value + 1) % room.value.images.length
+  if (stableRoom.value) currentImageIndex.value = (currentImageIndex.value + 1) % stableRoom.value.images.length
 }
 const prevImage = () => {
-  if (room.value) currentImageIndex.value = (currentImageIndex.value - 1 + room.value.images.length) % room.value.images.length
+  if (stableRoom.value) currentImageIndex.value = (currentImageIndex.value - 1 + stableRoom.value.images.length) % stableRoom.value.images.length
 }
 
 // Form state
@@ -55,11 +58,27 @@ const paymentOptions = [
   },
 ]
 
+// Sayfa meta — checkout'a özel transition'ı kapat + guard
+definePageMeta({
+  // out-in modunda room computed null olunca transition takılıyordu
+  pageTransition: false,
+  middleware: [
+    function (to) {
+      const roomSlug = to.query.room as string
+      if (!roomSlug) {
+        return navigateTo('/reservation')
+      }
+    }
+  ]
+})
+
 onMounted(() => {
-  if (!roomSlug || !room.value) {
-    router.replace('/reservation')
+  if (!stableRoom.value) {
+    navigateTo(localePath('/reservation'))
     return
   }
+  // Stable ref'i mount'ta bir kez dondur
+  stableRoom.value = room.value
   fetchBasePrices()
 })
 
@@ -76,14 +95,14 @@ const nightsCount = computed(() => {
 })
 
 const pricePerNight = computed(() => {
-  if (room.value?.price) return Number(room.value.price)
-  const matchId = (room.value?.apiId || room.value?.slug || '').toString()
+  if (stableRoom.value?.price) return Number(stableRoom.value.price)
+  const matchId = (stableRoom.value?.apiId || stableRoom.value?.slug || '').toString()
   return basePrices.value[matchId]?.price ? Number(basePrices.value[matchId].price) : 0
 })
 
 const currency = computed(() => {
-  if (room.value?.currency) return room.value.currency
-  const matchId = (room.value?.apiId || room.value?.slug || '').toString()
+  if (stableRoom.value?.currency) return stableRoom.value.currency
+  const matchId = (stableRoom.value?.apiId || stableRoom.value?.slug || '').toString()
   return basePrices.value[matchId]?.currency || '₺'
 })
 
@@ -132,7 +151,7 @@ const handleComplete = async () => {
     const result = await $fetch('/api/booking', {
       method: 'POST',
       body: {
-        roomExternalId: room.value?.apiId || room.value?.slug,
+      roomExternalId: stableRoom.value?.apiId || stableRoom.value?.slug,
         checkIn: checkInDate.value,
         checkOut: checkOutDate.value,
         guest: {
@@ -144,7 +163,7 @@ const handleComplete = async () => {
         },
         adults: reservationState.value.guests.adults,
         children: reservationState.value.guests.childrenFree + reservationState.value.guests.childrenDiscount + reservationState.value.guests.childrenAdult,
-        rateCode: room.value?.rateCode,
+        rateCode: stableRoom.value?.rateCode,
       }
     })
 
@@ -161,7 +180,7 @@ const handleComplete = async () => {
       if (cleaned.startsWith('0')) cleaned = '9' + cleaned
       else if (!cleaned.startsWith('90') && cleaned.length === 10) cleaned = '90' + cleaned
 
-      const roomName = room.value ? tRoom(room.value.name) : ''
+      const roomName = stableRoom.value ? tRoom(stableRoom.value.name) : ''
       const checkIn = checkInDate.value ? new Date(checkInDate.value).toLocaleDateString('tr-TR') : '-'
       const checkOut = checkOutDate.value ? new Date(checkOutDate.value).toLocaleDateString('tr-TR') : '-'
       const adults = reservationState.value.guests.adults
@@ -214,21 +233,22 @@ const handleComplete = async () => {
   }
 }
 
-const closeSuccess = (goHome = false) => {
-  bookingSuccess.value = null          // modalı kapat
-  document.body.style.overflow = ''    // scroll kilidi kaldır
-  if (goHome) router.push('/')
+const closeSuccess = async (goHome = false) => {
+  document.body.style.overflow = ''    // önce overflow kilidi kaldır
+  bookingSuccess.value = null
+  if (goHome) await navigateTo(localePath('/'))
 }
 
-// Component yıkılınca overflow kilitlenmemiş kalsın diye güvenlik
-onUnmounted(() => {
+// Component yıkılmadan önce overflow mutlaka temizle
+onBeforeUnmount(() => {
   document.body.style.overflow = ''
 })
 </script>
 
 <template>
   <div class="min-h-screen pt-28 pb-20 font-sans bg-(--color-page-bg)">
-    <div class="max-w-7xl mx-auto px-4 md:px-6" v-if="room">
+    <!-- stableRoom kullan: navigasyon sırasında room null olsa içerik kaybolmaz -->
+    <div class="max-w-7xl mx-auto px-4 md:px-6" v-if="stableRoom">
 
       <!-- Page Header -->
       <div class="text-center mb-10 animate-fade-in-up">
@@ -551,15 +571,15 @@ onUnmounted(() => {
               <transition name="img-fade" mode="out-in">
                 <NuxtImg
                   :key="currentImageIndex"
-                  :src="room.images[currentImageIndex]"
-                  :alt="tRoom(room.name)"
+                  :src="stableRoom.images[currentImageIndex]"
+                  :alt="tRoom(stableRoom.name)"
                   class="w-full h-full object-cover"
                   sizes="sm:100vw lg:560px"
                 />
               </transition>
 
               <!-- Slider Arrows -->
-              <template v-if="room.images.length > 1">
+              <template v-if="stableRoom.images.length > 1">
                 <button
                   @click="prevImage"
                   class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/60 transition-all"
@@ -575,9 +595,9 @@ onUnmounted(() => {
               </template>
 
               <!-- Dot Indicators -->
-              <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5" v-if="room.images.length > 1">
+              <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5" v-if="stableRoom.images.length > 1">
                 <button
-                  v-for="(_, i) in room.images"
+                  v-for="(_, i) in stableRoom.images"
                   :key="i"
                   @click="currentImageIndex = i"
                   class="w-1.5 h-1.5 rounded-full transition-all duration-300"
@@ -588,15 +608,15 @@ onUnmounted(() => {
               <!-- Room name overlay -->
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
               <div class="absolute bottom-8 left-4 right-4 pointer-events-none">
-                <h3 class="font-serif text-2xl italic text-white">{{ tRoom(room.name) }}</h3>
+                <h3 class="font-serif text-2xl italic text-white">{{ tRoom(stableRoom.name) }}</h3>
                 <div class="flex items-center gap-3 mt-1">
                   <span class="text-xs text-white/80 flex items-center gap-1">
                     <UIcon name="i-heroicons-user-group" class="w-3.5 h-3.5" />
-                    Maks. {{ room.maxGuests }} Misafir
+                    Maks. {{ stableRoom.maxGuests }} Misafir
                   </span>
                   <span class="text-xs text-white/80 flex items-center gap-1">
                     <UIcon name="i-heroicons-squares-2x2" class="w-3.5 h-3.5" />
-                    {{ room.size }} m²
+                    {{ stableRoom.size }} m²
                   </span>
                 </div>
               </div>

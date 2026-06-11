@@ -103,7 +103,7 @@
       <button
         v-for="(_, index) in images"
         :key="index"
-        class="relative w-11 h-11 flex items-center justify-center group cursor-pointer"
+        class="relative w-11 h-11 sm:w-4  sm:h-4 flex items-center justify-center group cursor-pointer"
         :aria-label="`Image ${index + 1}`"
         @click="currentImageIndex = index"
       >

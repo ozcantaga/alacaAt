@@ -112,7 +112,7 @@ export interface HotelConfig {
     titleTemplate: string
     defaultDescription: Record<string, string>
     ogImage: string
-    twitterHandle?: string
+
   }
   booking: {
     engine: 'internal' | 'external'
@@ -235,22 +235,22 @@ export const hotelConfig: HotelConfig = {
       },
       reviews: [
         {
-                author: "Canan E.",
-                text: {
-                        tr: "Genişliği ve ferahlığıyla harika bir deneyimdi. Özellikle temizlik kusursuzdu.",
-                        en: "It was a wonderful experience with its spaciousness. The cleanliness was especially flawless."
-                },
-                rating: 5
+          author: "Canan E.",
+          text: {
+            tr: "Genişliği ve ferahlığıyla harika bir deneyimdi. Özellikle temizlik kusursuzdu.",
+            en: "It was a wonderful experience with its spaciousness. The cleanliness was especially flawless."
+          },
+          rating: 5
         },
         {
-                author: "Bora Y.",
-                text: {
-                        tr: "Ametis taşının o huzur veren atmosferini gerçekten hissettik. Ailecek çok rahat ettik.",
-                        en: "We really felt the peaceful atmosphere of the amethyst stone. We were very comfortable as a family."
-                },
-                rating: 5
+          author: "Bora Y.",
+          text: {
+            tr: "Ametis taşının o huzur veren atmosferini gerçekten hissettik. Ailecek çok rahat ettik.",
+            en: "We really felt the peaceful atmosphere of the amethyst stone. We were very comfortable as a family."
+          },
+          rating: 5
         }
-]
+      ]
     },
     {
       slug: 'florit',
@@ -274,14 +274,14 @@ export const hotelConfig: HotelConfig = {
       },
       reviews: [
         {
-                author: "Selin T.",
-                text: {
-                        tr: "Florit odasının o zarif dekorasyonu ve bahçe manzarası bizi büyüledi. Sabahları kuş sesleriyle uyanmak harikaydı.",
-                        en: "The elegant decoration and garden view of the Florit room fascinated us. Waking up to the sounds of birds in the morning was great."
-                },
-                rating: 5
+          author: "Selin T.",
+          text: {
+            tr: "Florit odasının o zarif dekorasyonu ve bahçe manzarası bizi büyüledi. Sabahları kuş sesleriyle uyanmak harikaydı.",
+            en: "The elegant decoration and garden view of the Florit room fascinated us. Waking up to the sounds of birds in the morning was great."
+          },
+          rating: 5
         }
-]
+      ]
     },
     {
       slug: 'kalsit',
@@ -304,14 +304,14 @@ export const hotelConfig: HotelConfig = {
       },
       reviews: [
         {
-                author: "Ahmet D.",
-                text: {
-                        tr: "Doğal taş konsepti ve geniş oturma alanı ile Alaçatı ruhunu sonuna kadar yaşadık. Kesinlikle tekrar geleceğiz.",
-                        en: "With the natural stone concept and large seating area, we experienced the spirit of Alaçatı to the fullest. We will definitely come back."
-                },
-                rating: 5
+          author: "Ahmet D.",
+          text: {
+            tr: "Doğal taş konsepti ve geniş oturma alanı ile Alaçatı ruhunu sonuna kadar yaşadık. Kesinlikle tekrar geleceğiz.",
+            en: "With the natural stone concept and large seating area, we experienced the spirit of Alaçatı to the fullest. We will definitely come back."
+          },
+          rating: 5
         }
-]
+      ]
     },
     {
       slug: 'kehribar',
@@ -335,14 +335,14 @@ export const hotelConfig: HotelConfig = {
       },
       reviews: [
         {
-                author: "Gülşah M.",
-                text: {
-                        tr: "Sıcak tonlar odaya inanılmaz bir romantizm katmış. Kendimizi evimizde ama bir o kadar da lüks içinde hissettik.",
-                        en: "The warm tones added incredible romance to the room. We felt at home but in luxury."
-                },
-                rating: 5
+          author: "Gülşah M.",
+          text: {
+            tr: "Sıcak tonlar odaya inanılmaz bir romantizm katmış. Kendimizi evimizde ama bir o kadar da lüks içinde hissettik.",
+            en: "The warm tones added incredible romance to the room. We felt at home but in luxury."
+          },
+          rating: 5
         }
-]
+      ]
     },
     {
       slug: 'mercan',
@@ -367,14 +367,14 @@ export const hotelConfig: HotelConfig = {
       },
       reviews: [
         {
-                author: "Merve B.",
-                text: {
-                        tr: "Arkadaşımla konakladık. Odadaki imkanlar eksiksizdi ve renklerin enerjisi tatilimize neşe kattı.",
-                        en: "Stayed with a friend. The facilities in the room were complete and the energy of the colors added joy to our holiday."
-                },
-                rating: 5
+          author: "Merve B.",
+          text: {
+            tr: "Arkadaşımla konakladık. Odadaki imkanlar eksiksizdi ve renklerin enerjisi tatilimize neşe kattı.",
+            en: "Stayed with a friend. The facilities in the room were complete and the energy of the colors added joy to our holiday."
+          },
+          rating: 5
         }
-]
+      ]
     },
     {
       slug: 'oniks',
@@ -396,14 +396,14 @@ export const hotelConfig: HotelConfig = {
       },
       reviews: [
         {
-                author: "Kaan A.",
-                text: {
-                        tr: "Oniks odasının gizemli ve güçlü tasarımı gerçekten farklı bir hava katıyor. Havuz manzarası ve konfor muazzam.",
-                        en: "The mysterious and strong design of the Onyx room really adds a different atmosphere. Pool view and comfort are tremendous."
-                },
-                rating: 5
+          author: "Kaan A.",
+          text: {
+            tr: "Oniks odasının gizemli ve güçlü tasarımı gerçekten farklı bir hava katıyor. Havuz manzarası ve konfor muazzam.",
+            en: "The mysterious and strong design of the Onyx room really adds a different atmosphere. Pool view and comfort are tremendous."
+          },
+          rating: 5
         }
-]
+      ]
     },
     {
       slug: 'opal',
@@ -428,14 +428,14 @@ export const hotelConfig: HotelConfig = {
       },
       reviews: [
         {
-                author: "Zeynep Y.",
-                text: {
-                        tr: "Işıltılı ve tertemiz bir oda! Her detayı ince düşünülmüş. Personel de çok ilgiliydi, herkese tavsiye ederim.",
-                        en: "A sparkling and spotlessly clean room! Every detail has been carefully considered. I highly recommend it."
-                },
-                rating: 5
+          author: "Zeynep Y.",
+          text: {
+            tr: "Işıltılı ve tertemiz bir oda! Her detayı ince düşünülmüş. Personel de çok ilgiliydi, herkese tavsiye ederim.",
+            en: "A sparkling and spotlessly clean room! Every detail has been carefully considered. I highly recommend it."
+          },
+          rating: 5
         }
-]
+      ]
     },
     {
       slug: 'safir',
@@ -459,14 +459,14 @@ export const hotelConfig: HotelConfig = {
       },
       reviews: [
         {
-                author: "Murat C.",
-                text: {
-                        tr: "Safir mavisinin o premium hissi odaya adım atar atmaz sizi sarıyor. Lüks bir balayı geçirmek isteyenlere duyurulur.",
-                        en: "The premium feel of sapphire blue surrounds you as soon as you step into the room. Highly recommended for a luxurious honeymoon."
-                },
-                rating: 5
+          author: "Murat C.",
+          text: {
+            tr: "Safir mavisinin o premium hissi odaya adım atar atmaz sizi sarıyor. Lüks bir balayı geçirmek isteyenlere duyurulur.",
+            en: "The premium feel of sapphire blue surrounds you as soon as you step into the room. Highly recommended for a luxurious honeymoon."
+          },
+          rating: 5
         }
-]
+      ]
     },
     {
       slug: 'yakut',
@@ -490,14 +490,14 @@ export const hotelConfig: HotelConfig = {
       },
       reviews: [
         {
-                author: "Derya S.",
-                text: {
-                        tr: "Tutkulu ve romantik konsepti tam bizlikti. Bahçe manzarasının keyfi ve odanın şıklığı birleşince rüya gibi bir 2 gün geçirdik.",
-                        en: "The passionate and romantic concept was just for us. The enjoyment of the garden view and the elegance of the room made it a dream-like 2 days."
-                },
-                rating: 5
+          author: "Derya S.",
+          text: {
+            tr: "Tutkulu ve romantik konsepti tam bizlikti. Bahçe manzarasının keyfi ve odanın şıklığı birleşince rüya gibi bir 2 gün geçirdik.",
+            en: "The passionate and romantic concept was just for us. The enjoyment of the garden view and the elegance of the room made it a dream-like 2 days."
+          },
+          rating: 5
         }
-]
+      ]
     },
     {
       slug: 'yesim',
@@ -522,14 +522,14 @@ export const hotelConfig: HotelConfig = {
       },
       reviews: [
         {
-                author: "Hakan K.",
-                text: {
-                        tr: "Doğallığı ve sakinliği arayanlar için Yeşim odası tek kelimeyle mükemmel. Çok dinlendirici ve huzurlu bir atmosfer.",
-                        en: "For those looking for naturalness and calmness, the Jade room is simply perfect. A very relaxing and peaceful atmosphere."
-                },
-                rating: 5
+          author: "Hakan K.",
+          text: {
+            tr: "Doğallığı ve sakinliği arayanlar için Yeşim odası tek kelimeyle mükemmel. Çok dinlendirici ve huzurlu bir atmosfer.",
+            en: "For those looking for naturalness and calmness, the Jade room is simply perfect. A very relaxing and peaceful atmosphere."
+          },
+          rating: 5
         }
-]
+      ]
     },
     {
       slug: 'zumrut',
@@ -635,21 +635,21 @@ export const hotelConfig: HotelConfig = {
     { src: '/images/havuz/v3.webp', alt: { tr: 'Havuz alanı', en: 'Pool area' }, description: { tr: 'Şezlonglarımızda güneşlenip havuz başında dinlenebilirsiniz.', en: 'You can sunbathe on our sun loungers and relax by the pool.' }, category: 'pool' },
     { src: '/images/havuz/v4.webp', alt: { tr: 'Havuz alanı', en: 'Pool area' }, description: { tr: 'Limon bahçemizin eşlik ettiği ferah havuzumuz.', en: 'Our spacious pool accompanied by our lemon garden.' }, category: 'pool' },
     { src: '/images/havuz/v5.webp', alt: { tr: 'Havuz alanı', en: 'Pool area' }, description: { tr: 'Şehrin gürültüsünden uzak havuz keyfi.', en: 'Enjoy the pool away from the noise of the city.' }, category: 'pool' },
-    
+
     { src: '/images/bar/v1.webp', alt: { tr: 'Restoran & Bar', en: 'Restaurant & Bar' }, description: { tr: 'Keyifli akşamlarınıza eşlik edecek bar alanımız.', en: 'Our bar area that will accompany your pleasant evenings.' }, category: 'restaurant' },
     { src: '/images/bar/v2.webp', alt: { tr: 'Restoran & Bar', en: 'Restaurant & Bar' }, description: { tr: 'Özel tatların sunulduğu şık restoranımız.', en: 'Our elegant restaurant where special flavors are served.' }, category: 'restaurant' },
     { src: '/images/bar/v3.webp', alt: { tr: 'Restoran & Bar', en: 'Restaurant & Bar' }, description: { tr: 'Kendi bahçemizin ürünleriyle hazırlanan içeceklerimiz.', en: 'Our drinks prepared with products from our own garden.' }, category: 'restaurant' },
     { src: '/images/bar/v5.webp', alt: { tr: 'Restoran & Bar', en: 'Restaurant & Bar' }, description: { tr: 'Huzurlu akşamlar için özel olarak tasarlanmış alanımız.', en: 'Our area specially designed for peaceful evenings.' }, category: 'restaurant' },
-    
+
     { src: '/images/Kahvalti/v1.webp', alt: { tr: 'Kahvaltı', en: 'Breakfast' }, description: { tr: 'Yerel lezzetlerle donatılmış Ege serpme kahvaltımız.', en: 'Our Aegean mixed breakfast equipped with local flavors.' }, category: 'restaurant' },
     { src: '/images/Kahvalti/v2.webp', alt: { tr: 'Kahvaltı', en: 'Breakfast' }, description: { tr: 'Ev yapımı reçellerle güne tatlı bir başlangıç.', en: 'A sweet start to the day with homemade jams.' }, category: 'restaurant' },
     { src: '/images/Kahvalti/v3.webp', alt: { tr: 'Kahvaltı', en: 'Breakfast' }, description: { tr: 'Taze ve doğal ürünlerle hazırlanan zengin kahvaltı.', en: 'Rich breakfast prepared with fresh and natural products.' }, category: 'restaurant' },
     { src: '/images/Kahvalti/v4.webp', alt: { tr: 'Kahvaltı', en: 'Breakfast' }, description: { tr: 'Havuz başında veya bahçemizde kahvaltı keyfi.', en: 'Enjoy breakfast by the pool or in our garden.' }, category: 'restaurant' },
-    
+
     { src: '/images/banyo/v1.webp', alt: { tr: 'Banyo', en: 'Bathroom' }, description: { tr: 'Modern tasarıma sahip ferah banyolarımız.', en: 'Our spacious bathrooms with modern design.' }, category: 'room' },
     { src: '/images/banyo/v2.webp', alt: { tr: 'Banyo', en: 'Bathroom' }, description: { tr: 'Günün yorgunluğunu atabileceğiniz şık detaylar.', en: 'Elegant details where you can relieve the tiredness of the day.' }, category: 'room' },
     { src: '/images/banyo/v3.webp', alt: { tr: 'Banyo', en: 'Bathroom' }, description: { tr: 'Konforunuz için özenle düşünülmüş banyo mimarisi.', en: 'Bathroom architecture carefully considered for your comfort.' }, category: 'room' },
-    
+
     { src: '/images/recepsion/v1.webp', alt: { tr: 'Resepsiyon', en: 'Reception' }, description: { tr: 'Sizi sıcak bir şekilde karşıladığımız resepsiyon alanımız.', en: 'Our reception area where we welcome you warmly.' }, category: 'view' },
     { src: '/images/recepsion/v2.webp', alt: { tr: 'Resepsiyon', en: 'Reception' }, description: { tr: 'Giriş anınızdan itibaren hissedeceğiniz Ege misafirperverliği.', en: 'Aegean hospitality you will feel from the moment you check in.' }, category: 'view' },
     { src: '/images/recepsion/v3.webp', alt: { tr: 'Resepsiyon', en: 'Reception' }, description: { tr: 'Tüm sorularınız için 7/24 yanınızdayız.', en: 'We are with you 24/7 for all your questions.' }, category: 'view' },
@@ -658,52 +658,52 @@ export const hotelConfig: HotelConfig = {
     { src: '/images/rooms/Ametis/v2.avif', alt: { tr: 'Ametis Oda', en: 'Ametis Room' }, description: { tr: 'Ametis odamızda sunulan konforlu ve şık detaylar.', en: 'Comfortable and elegant details offered in our Ametis room.' }, category: 'room' },
     { src: '/images/rooms/Ametis/v3.avif', alt: { tr: 'Ametis Oda', en: 'Ametis Room' }, description: { tr: 'Huzurlu bir konaklama için tasarlanmış Ametis odamız.', en: 'Our Ametis room designed for a peaceful stay.' }, category: 'room' },
     { src: '/images/rooms/Ametis/v4.avif', alt: { tr: 'Ametis Oda', en: 'Ametis Room' }, description: { tr: 'Doğal ışık alan, modern mobilyalarla döşenmiş Ametis.', en: 'Ametis, furnished with modern furniture and receiving natural light.' }, category: 'room' },
-    
+
     { src: '/images/rooms/Florit/v1.avif', alt: { tr: 'Florit Oda', en: 'Florit Room' }, description: { tr: 'Zarif detayları ve huzur veren atmosferiyle Florit odamız.', en: 'Our Florit room with its elegant details and peaceful atmosphere.' }, category: 'room' },
     { src: '/images/rooms/Florit/v2.avif', alt: { tr: 'Florit Oda', en: 'Florit Room' }, description: { tr: 'Florit odamızın konforlu yatak alanı.', en: 'The comfortable bed area of our Florit room.' }, category: 'room' },
     { src: '/images/rooms/Florit/v3.avif', alt: { tr: 'Florit Oda', en: 'Florit Room' }, description: { tr: 'Ege mimarisiyle harmanlanmış şık oda tasarımı.', en: 'Elegant room design blended with Aegean architecture.' }, category: 'room' },
     { src: '/images/rooms/Florit/v4.avif', alt: { tr: 'Florit Oda', en: 'Florit Room' }, description: { tr: 'Florit odamızda yer alan dinlenme köşesi.', en: 'The resting corner in our Florit room.' }, category: 'room' },
-    
+
     { src: '/images/rooms/Kalsit/v1.avif', alt: { tr: 'Kalsit Oda', en: 'Kalsit Room' }, description: { tr: 'Doğal taş dokuları ve modern tasarımıyla Kalsit odamız.', en: 'Our Kalsit room with natural stone textures and modern design.' }, category: 'room' },
     { src: '/images/rooms/Kalsit/v2.avif', alt: { tr: 'Kalsit Oda', en: 'Kalsit Room' }, description: { tr: 'Alaçatı ruhunu yansıtan eşsiz detaylar.', en: 'Unique details reflecting the spirit of Alaçatı.' }, category: 'room' },
     { src: '/images/rooms/Kalsit/v3.avif', alt: { tr: 'Kalsit Oda', en: 'Kalsit Room' }, description: { tr: 'Kalsit odamızın rahatlatıcı atmosferi.', en: 'The relaxing atmosphere of our Kalsit room.' }, category: 'room' },
-    
+
     { src: '/images/rooms/Kehribar/v1.avif', alt: { tr: 'Kehribar Oda', en: 'Kehribar Room' }, description: { tr: 'Sıcak renk tonları ve şık tasarımıyla Kehribar odamız.', en: 'Our Kehribar room with warm color tones and elegant design.' }, category: 'room' },
     { src: '/images/rooms/Kehribar/v2.avif', alt: { tr: 'Kehribar Oda', en: 'Kehribar Room' }, description: { tr: 'Kendinizi evinizde hissedeceğiniz sıcak bir ortam.', en: 'A warm environment where you will feel at home.' }, category: 'room' },
     { src: '/images/rooms/Kehribar/v3.avif', alt: { tr: 'Kehribar Oda', en: 'Kehribar Room' }, description: { tr: 'Özenle seçilmiş mobilyalar ve aksesuarlar.', en: 'Carefully selected furniture and accessories.' }, category: 'room' },
     { src: '/images/rooms/Kehribar/v4.avif', alt: { tr: 'Kehribar Oda', en: 'Kehribar Room' }, description: { tr: 'Kehribar odamızın ferah iç mekanı.', en: 'The spacious interior of our Kehribar room.' }, category: 'room' },
-    
+
     { src: '/images/rooms/Mercan/v1.avif', alt: { tr: 'Mercan Oda', en: 'Mercan Room' }, description: { tr: 'Canlı ve dinamik bir enerji sunan Mercan odamız.', en: 'Our Mercan room offering a lively and dynamic energy.' }, category: 'room' },
     { src: '/images/rooms/Mercan/v2.avif', alt: { tr: 'Mercan Oda', en: 'Mercan Room' }, description: { tr: 'Konforlu bir tatil için ihtiyacınız olan her şey.', en: 'Everything you need for a comfortable holiday.' }, category: 'room' },
     { src: '/images/rooms/Mercan/v3.avif', alt: { tr: 'Mercan Oda', en: 'Mercan Room' }, description: { tr: 'Mercan odamızın şık banyo tasarımı.', en: 'The elegant bathroom design of our Mercan room.' }, category: 'room' },
     { src: '/images/rooms/Mercan/v4.avif', alt: { tr: 'Mercan Oda', en: 'Mercan Room' }, description: { tr: 'Güne huzurla uyanacağınız yatak alanımız.', en: 'Our bed area where you will wake up peacefully.' }, category: 'room' },
     { src: '/images/rooms/Mercan/v5.avif', alt: { tr: 'Mercan Oda', en: 'Mercan Room' }, description: { tr: 'Modern ve geleneksel motiflerin eşsiz uyumu.', en: 'The unique harmony of modern and traditional motifs.' }, category: 'room' },
-    
+
     { src: '/images/rooms/Oniks/v1.avif', alt: { tr: 'Oniks Oda', en: 'Oniks Room' }, description: { tr: 'Asil bir tasarıma sahip olan Oniks odamız.', en: 'Our Oniks room with a noble design.' }, category: 'room' },
     { src: '/images/rooms/Oniks/v2.avif', alt: { tr: 'Oniks Oda', en: 'Oniks Room' }, description: { tr: 'Oniks odamızın sunduğu eşsiz konfor.', en: 'The unique comfort offered by our Oniks room.' }, category: 'room' },
-    
+
     { src: '/images/rooms/Opal/v1.avif', alt: { tr: 'Opal Oda', en: 'Opal Room' }, description: { tr: 'Işıl ışıl ve ferah atmosferiyle Opal odamız.', en: 'Our Opal room with its sparkling and spacious atmosphere.' }, category: 'room' },
     { src: '/images/rooms/Opal/v2.avif', alt: { tr: 'Opal Oda', en: 'Opal Room' }, description: { tr: 'Opal odamızda yer alan dinlendirici detaylar.', en: 'Relaxing details in our Opal room.' }, category: 'room' },
     { src: '/images/rooms/Opal/v3.avif', alt: { tr: 'Opal Oda', en: 'Opal Room' }, description: { tr: 'Tatile keyif katacak modern dokunuşlar.', en: 'Modern touches that will add joy to your holiday.' }, category: 'room' },
     { src: '/images/rooms/Opal/v4.avif', alt: { tr: 'Opal Oda', en: 'Opal Room' }, description: { tr: 'Opal odamızın geniş ve rahat yatağı.', en: 'The large and comfortable bed of our Opal room.' }, category: 'room' },
     { src: '/images/rooms/Opal/v5.avif', alt: { tr: 'Opal Oda', en: 'Opal Room' }, description: { tr: 'Minimalist ve zarif oda tasarımı.', en: 'Minimalist and elegant room design.' }, category: 'room' },
-    
+
     { src: '/images/rooms/Safir/v1.avif', alt: { tr: 'Safir Oda', en: 'Safir Room' }, description: { tr: 'Mavi ve beyazın kusursuz uyumunu sunan Safir odamız.', en: 'Our Safir room offering the perfect harmony of blue and white.' }, category: 'room' },
     { src: '/images/rooms/Safir/v2.avif', alt: { tr: 'Safir Oda', en: 'Safir Room' }, description: { tr: 'Safir odamızın sakinleştiren dekorasyonu.', en: 'The calming decoration of our Safir room.' }, category: 'room' },
     { src: '/images/rooms/Safir/v3.avif', alt: { tr: 'Safir Oda', en: 'Safir Room' }, description: { tr: 'Aydınlık ve ferah yaşam alanımız.', en: 'Our bright and spacious living area.' }, category: 'room' },
     { src: '/images/rooms/Safir/v4.avif', alt: { tr: 'Safir Oda', en: 'Safir Room' }, description: { tr: 'Safir odamızda konfor ve şıklık bir arada.', en: 'Comfort and elegance combined in our Safir room.' }, category: 'room' },
-    
+
     { src: '/images/rooms/Yakut/v1.avif', alt: { tr: 'Yakut Oda', en: 'Yakut Room' }, description: { tr: 'Gösterişli ve sıcak bir atmosfere sahip Yakut odamız.', en: 'Our Yakut room with a glamorous and warm atmosphere.' }, category: 'room' },
     { src: '/images/rooms/Yakut/v2.avif', alt: { tr: 'Yakut Oda', en: 'Yakut Room' }, description: { tr: 'Yakut odamızın özel tasarım detayları.', en: 'Special design details of our Yakut room.' }, category: 'room' },
     { src: '/images/rooms/Yakut/v3.avif', alt: { tr: 'Yakut Oda', en: 'Yakut Room' }, description: { tr: 'Lüks ve konforu bir arada sunan yaşam alanı.', en: 'Living area offering luxury and comfort together.' }, category: 'room' },
     { src: '/images/rooms/Yakut/v4.avif', alt: { tr: 'Yakut Oda', en: 'Yakut Room' }, description: { tr: 'Yakut odamızda yer alan dinlenme ve keyif köşesi.', en: 'Rest and enjoyment corner in our Yakut room.' }, category: 'room' },
-    
+
     { src: '/images/rooms/Yesim/v1.avif', alt: { tr: 'Yeşim Oda', en: 'Yesim Room' }, description: { tr: 'Doğanın yeşil tonlarını barındıran Yeşim odamız.', en: 'Our Yesim room featuring the green tones of nature.' }, category: 'room' },
     { src: '/images/rooms/Yesim/v2.avif', alt: { tr: 'Yeşim Oda', en: 'Yesim Room' }, description: { tr: 'Yeşim odamızın tazeleyici ve ferah hissi.', en: 'The refreshing and spacious feel of our Yesim room.' }, category: 'room' },
     { src: '/images/rooms/Yesim/v3.avif', alt: { tr: 'Yeşim Oda', en: 'Yesim Room' }, description: { tr: 'Konforlu bir uyku için tasarlanan yatak köşesi.', en: 'Bed corner designed for a comfortable sleep.' }, category: 'room' },
     { src: '/images/rooms/Yesim/v4.avif', alt: { tr: 'Yeşim Oda', en: 'Yesim Room' }, description: { tr: 'Yeşim odamızın geniş pencere ve aydınlık yapısı.', en: 'The large window and bright structure of our Yesim room.' }, category: 'room' },
     { src: '/images/rooms/Yesim/v5.avif', alt: { tr: 'Yeşim Oda', en: 'Yesim Room' }, description: { tr: 'İç açıcı dekorasyonuyla huzurlu bir ortam.', en: 'A peaceful environment with its refreshing decoration.' }, category: 'room' },
-    
+
     { src: '/images/rooms/Zumrut/v1.avif', alt: { tr: 'Zümrüt Oda', en: 'Zumrut Room' }, description: { tr: 'Göz alıcı yeşil detaylarıyla Zümrüt odamız.', en: 'Our Zumrut room with eye-catching green details.' }, category: 'room' },
     { src: '/images/rooms/Zumrut/v2.avif', alt: { tr: 'Zümrüt Oda', en: 'Zumrut Room' }, description: { tr: 'Zümrüt odamızda sunulan premium konfor.', en: 'Premium comfort offered in our Zumrut room.' }, category: 'room' },
     { src: '/images/rooms/Zumrut/v3.avif', alt: { tr: 'Zümrüt Oda', en: 'Zumrut Room' }, description: { tr: 'Ege stilini yansıtan otantik aksesuarlar.', en: 'Authentic accessories reflecting the Aegean style.' }, category: 'room' },
@@ -782,7 +782,7 @@ export const hotelConfig: HotelConfig = {
       en: 'Romantic boutique hotel with a pool and stone architecture in the center of Alaçatı. Book your stay with breakfast included in our elegant rooms.',
     },
     ogImage: '/images/hero/hero.webp',
-    twitterHandle: '@alacaathotel',
+
   },
 
   // ─── Booking ───────────────────────────────────────────────────────

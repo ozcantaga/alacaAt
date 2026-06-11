@@ -114,12 +114,13 @@ const openGallery = (id: string) => {
             class="w-full h-full object-cover transition-transform duration-[6000ms] group-hover:scale-110"
           />
 
-          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex flex-col justify-end p-6">
-            <div class="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-              <span class="inline-block text-[8px] tracking-[0.3em] uppercase font-black border-b pb-1 mb-2 text-(--text-highlight)">
+          <!-- Alt gradient + içerik overlay (Mobilde daima görünür, Masaüstünde hover) -->
+          <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-700">
+            <div class="translate-y-0 md:translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+              <span class="inline-block text-[8px] tracking-[0.3em] uppercase font-black border-b pb-1 mb-2 text-white/70">
                 BÜYÜT
               </span>
-              <h2 class="font-serif text-lg md:text-xl italic leading-tight text-[rgba(255,255,255,0.85)]">
+              <h2 class="font-serif text-lg md:text-xl italic leading-tight text-white drop-shadow-md">
                 {{ item.alt }}
               </h2>
             </div>
@@ -161,5 +162,20 @@ const openGallery = (id: string) => {
 }
 .gallery-list-move {
   transition: transform 0.4s ease;
+}
+
+/* Mobil: overlay her zaman görünür */
+.gallery-overlay {
+  opacity: 1;
+}
+
+/* Masaüstü (768px+): başlangıçta gizli, hover'da ortaya çıkar */
+@media (min-width: 768px) {
+  .gallery-overlay {
+    opacity: 0;
+  }
+  .group:hover .gallery-overlay {
+    opacity: 1;
+  }
 }
 </style>

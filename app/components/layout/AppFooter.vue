@@ -134,7 +134,7 @@
               block
               size="lg"
               class="border-0"
-              color="primary"
+              
               trailing-icon="i-heroicons-arrow-right"
             />
           </NuxtLink>

@@ -2,30 +2,83 @@
   <NuxtLink
     :to="bookingMode ? localePath('/reservation/checkout?room=' + room.slug) : localePath(`/rooms/${room.slug}`)"
     class="group flex flex-col h-full rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 border bg-(--ui-bg-elevated)"
+    @mouseenter="startAuto"
+    @mouseleave="stopAuto"
   >
-    <!-- Image -->
-    <div class="relative aspect-[16/10] overflow-hidden">
-      <NuxtImg
-        :src="room.images[0]"
-        :alt="t(room.name)"
-        class="w-full h-full object-cover transition-transform duration-[4000ms] group-hover:scale-110"
-        :loading="priority ? 'eager' : 'lazy'"
-        :fetchpriority="priority ? 'high' : 'auto'"
-        format="webp"
-        sizes="sm:100vw md:50vw lg:400px"
-      />
+    <!-- Image Slider -->
+    <div
+      class="relative aspect-[16/10] overflow-hidden"
+      @click.prevent
+      @touchstart.passive="onTouchStart"
+      @touchend.passive="onTouchEnd"
+    >
+      <!-- Slides -->
+      <div
+        class="flex h-full transition-transform duration-500 ease-in-out"
+        :style="{ transform: `translateX(-${currentImageIndex * 100}%)` }"
+      >
+        <NuxtImg
+          v-for="(img, idx) in room.images"
+          :key="idx"
+          :src="img"
+          :alt="`${t(room.name)} - ${idx + 1}`"
+          class="w-full h-full object-cover shrink-0 transition-transform duration-[4000ms] group-hover:scale-110"
+          :loading="priority && idx === 0 ? 'eager' : 'lazy'"
+          :fetchpriority="priority && idx === 0 ? 'high' : 'auto'"
+          format="webp"
+          sizes="sm:100vw md:50vw lg:400px"
+          style="min-width: 100%"
+        />
+      </div>
+
       <!-- Gradient Overlay -->
-      <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      
+      <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
       <!-- Size Badge -->
-      <div class="absolute top-3 right-3 z-10">
+      <div class="absolute top-3 right-3 z-10 pointer-events-none">
         <span class="px-2.5 py-1 rounded-full text-[10px] font-semibold backdrop-blur-sm tracking-wide">
           {{ room.size }} {{ $t('rooms.size') }}
         </span>
       </div>
 
+      <!-- Prev / Next Arrows (only when multiple images) -->
+      <ClientOnly>
+        <template v-if="room.images.length > 1">
+          <button
+            v-show="currentImageIndex > 0"
+            aria-label="Önceki görsel"
+            class="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-7 h-7 flex items-center justify-center rounded-full bg-black/40 hover:bg-black/65 backdrop-blur-sm text-white transition-all duration-200 opacity-0 group-hover:opacity-100"
+            @click.prevent.stop="prevImage"
+          >
+            <UIcon name="i-heroicons-chevron-left" class="w-4 h-4" />
+          </button>
+          <button
+            v-show="currentImageIndex < room.images.length - 1"
+            aria-label="Sonraki görsel"
+            class="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-7 h-7 flex items-center justify-center rounded-full bg-black/40 hover:bg-black/65 backdrop-blur-sm text-white transition-all duration-200 opacity-0 group-hover:opacity-100"
+            @click.prevent.stop="nextImage"
+          >
+            <UIcon name="i-heroicons-chevron-right" class="w-4 h-4" />
+          </button>
+
+          <!-- Dot indicators -->
+          <div class="absolute bottom-2 left-1/2 -translate-x-1/2 z-20 flex gap-1.5">
+            <button
+              v-for="(_, idx) in room.images"
+              :key="idx"
+              :aria-label="`Görsel ${idx + 1}`"
+              class="rounded-full transition-all duration-300"
+              :class="idx === currentImageIndex
+                ? 'w-4 h-1.5 bg-white'
+                : 'w-1.5 h-1.5 bg-white/50 hover:bg-white/80'"
+              @click.prevent.stop="currentImageIndex = idx"
+            />
+          </div>
+        </template>
+      </ClientOnly>
+
       <!-- Hover CTA -->
-      <div class="absolute bottom-3 right-3 z-10 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500">
+      <div class="absolute bottom-3 right-3 z-10 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500 pointer-events-none">
         <span class="flex items-center gap-1 px-3 py-1.5 rounded-full backdrop-blur-sm text-[10px] font-bold tracking-wider uppercase">
           {{ $t('home.viewDetails') }}
           <UIcon name="i-heroicons-arrow-right" class="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
@@ -98,7 +151,7 @@
 
 <script setup lang="ts">
 import type { HotelRoom } from '~~/config/hotel.config'
-import { computed, onMounted } from 'vue'
+import { computed, ref, onBeforeUnmount } from 'vue'
 
 const { t } = useHotelConfig()
 const localePath = useLocalePath()
@@ -111,6 +164,54 @@ const props = withDefaults(defineProps<{
   bookingMode: false,
   priority: false
 })
+
+// Image slider state
+const currentImageIndex = ref(0)
+let autoTimer: ReturnType<typeof setInterval> | null = null
+
+const prevImage = () => {
+  currentImageIndex.value = currentImageIndex.value > 0
+    ? currentImageIndex.value - 1
+    : props.room.images.length - 1
+}
+
+const nextImage = () => {
+  currentImageIndex.value = (currentImageIndex.value + 1) % props.room.images.length
+}
+
+const startAuto = () => {
+  if (props.room.images.length <= 1) return
+  stopAuto()
+  autoTimer = setInterval(() => {
+    currentImageIndex.value = (currentImageIndex.value + 1) % props.room.images.length
+  }, 2500)
+}
+
+const stopAuto = () => {
+  if (autoTimer) {
+    clearInterval(autoTimer)
+    autoTimer = null
+  }
+}
+
+onBeforeUnmount(stopAuto)
+
+// ── Touch / Swipe ────────────────────────────────────────────
+let touchStartX = 0
+
+const onTouchStart = (e: TouchEvent) => {
+  touchStartX = e.changedTouches[0].clientX
+}
+
+const onTouchEnd = (e: TouchEvent) => {
+  const delta = touchStartX - e.changedTouches[0].clientX
+  if (Math.abs(delta) < 40) return  // çok kısa kaydırma → yoksay
+  if (delta > 0) {
+    nextImage()  // sola kaydır → sonraki
+  } else {
+    prevImage()  // sağa kaydır → önceki
+  }
+}
 
 // Fiyatlar sadece bookingMode aktifken gösterilir (anasayfada API çağrısı yapılmaz)
 const basePricesRef = props.bookingMode

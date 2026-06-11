@@ -120,17 +120,22 @@ const toggleMobileMenu = () => {
     >
       <!-- Sol: Logo (Sadece Görsel) -->
       <NuxtLink :to="localePath('/')" class="flex items-center group shrink-0 outline-none">
+         
         <NuxtImg 
-          v-if="config.images.logo"
-          :src="config.images.logo" 
-          loading="eager"
-          fetchpriority="high"
-          :alt="config.name"
-          width="96"
-          height="96"
-          class="transition-all duration-700 group-hover:scale-105 shrink-0 object-contain w-auto"
-          :class="isMounted && isScrolled ? 'h-10 md:h-12' : 'h-16 md:h-20'"
-        />
+   v-if="config.images.logo"
+    :src="config.images.logo" 
+    loading="eager"
+    fetchpriority="high"
+    format="avif" 
+    :alt="config.name"
+    width="350"
+    height="175"
+    sizes="xs:200px sm:250px md:300px lg:350px"
+    densities="x1 x2"
+    class="transition-all duration-700 group-hover:scale-105 shrink-0 object-contain w-auto"
+    :class="isMounted && isScrolled ? 'h-10 md:h-12' : 'h-16 md:h-20'"
+  
+  />
       </NuxtLink>
 
       <!-- Orta/Sağ: Desktop Navigasyon -->

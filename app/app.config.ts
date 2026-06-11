@@ -1,5 +1,11 @@
 export default defineAppConfig({
   ui: {
+    //colors
+    colors: {
+      primary: 'blue',
+      secondary: 'purple',
+      tertiary: 'indigo'
+    },
     // ─── Button Defaults ──────────────────────────────────────────────
     button: {
       defaultVariants: {
@@ -8,7 +14,7 @@ export default defineAppConfig({
       variants: {
         // Premium round icon button (sosyal medya, navigasyon ikonları)
         premium: {
-          base: 'rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300 hover:scale-110 bg-black/5 hover:bg-(--color-primary-500) text-(--text-heading) hover:text-(--ui-bg-elevated) ring-0 shadow-none hover:shadow-lg cursor-pointer',
+          base: 'rounded-full w-10 sm:w-5 h-10 sm:h-5 flex items-center justify-center transition-all duration-300 hover:scale-110 bg-black/5 hover:bg-(--color-primary-500) text-(--text-heading) hover:text-(--ui-bg-elevated) ring-0 shadow-none hover:shadow-lg cursor-pointer',
         },
       },
     },

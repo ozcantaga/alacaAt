@@ -12,6 +12,9 @@ const sliderRef = ref<any>(null)
 // Lighthouse Fix: Butonların durumuna göre dinamik aria-label
 const isPrevDisabled = computed(() => !sliderRef.value || sliderRef.value.currentIndex <= 0)
 const isNextDisabled = computed(() => !sliderRef.value || sliderRef.value.currentIndex >= reviews.length - 1)
+const currentIndex = computed(() => sliderRef.value?.currentIndex ?? 0)
+
+const goTo = (idx: number) => sliderRef.value?.goTo?.(idx)
 </script>
 
 <template>
@@ -60,6 +63,7 @@ const isNextDisabled = computed(() => !sliderRef.value || sliderRef.value.curren
               </div>
 
               <ClientOnly>
+                <!-- Ok butonları: sadece lg+ (masaüstü) -->
                 <div class="hidden lg:flex gap-4">
                   <button 
                     @click="sliderRef?.prevSlide()" 
@@ -92,7 +96,7 @@ const isNextDisabled = computed(() => !sliderRef.value || sliderRef.value.curren
             :hideArrows="true"
             itemClass="w-[85vw] md:w-[420px] p-10 h-[450px] flex flex-col justify-between border rounded-[2.5rem] transition-all duration-700 hover:shadow-2xl group/card bg-(--ui-bg-elevated)"
             paddingOffset="0.5rem"
-            spacingClass="gap-8 pb-16 pt-4"
+            spacingClass="gap-8 pb-4 pt-4"
           >
             <template #default="{ item: comment }">
               <blockquote class="m-0 h-full flex flex-col justify-between">

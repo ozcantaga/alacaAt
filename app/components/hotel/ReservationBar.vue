@@ -22,6 +22,11 @@ const isMobileModalOpen = ref(false)
 const isMobile = ref(false)
 const route = useRoute()
 
+// Sayfa değiştiğinde mobil modal'ı kapat (Reka UI Dialog DOM'da kalıntı bırakıyor)
+watch(() => route.fullPath, () => {
+  isMobileModalOpen.value = false
+})
+
 const isHomePage = computed(() => {
   const path = route.path.replace(/^\/(en|tr)(\/|$)/, '/')
   return path === '/' || path === ''
