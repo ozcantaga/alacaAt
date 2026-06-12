@@ -107,6 +107,27 @@
     "spa": "Spa",
     "view": "Views"
   },
+  "faq": {
+    "title": "Frequently asked questions",
+    "q1": "Does Alacaat Hotel offer free cancellation for a full refund?",
+    "a1": "Yes. Alacaat Hotel offers fully refundable rooms that can be booked on our site. If you've booked a fully refundable room, this reservation can be canceled up to a few days before check-in depending on the property's cancellation policy. Just make sure to check this property's cancellation policy for the exact terms and conditions.",
+    "q2": "Is there a pool at Alacaat Hotel?",
+    "a2": "Yes, there is an outdoor pool.",
+    "q3": "Does Alacaat Hotel allow pets?",
+    "a3": "Sorry, pets are not allowed.",
+    "q4": "Does Alacaat Hotel offer parking on site?",
+    "a4": "Yes, there is free self-parking.",
+    "q5": "Does Alacaat Hotel offer an airport shuttle?",
+    "a5": "Yes, an airport shuttle is available. A fee of 10 EUR per person, one-way, applies.",
+    "q6": "What are the check-in and check-out times at Alacaat Hotel?",
+    "a6": "You can check in from 14:00 onwards. Check-out time is noon. Fast, contactless check-in and check-out are available.",
+    "q7": "What are the amenities at and near Alacaat Hotel?",
+    "a7": "Alacaat Hotel features an outdoor pool and a garden.",
+    "q8": "Is there a restaurant at or near Alacaat Hotel?",
+    "a8": "Yes, there is a restaurant on site.",
+    "q9": "What is the area around Alacaat Hotel like?",
+    "a9": "Alacaat Hotel is a 13-minute walk from Alaçatı Bazaar and an 8-minute walk from Alaçatı Saturday Market."
+  },
   "about": {
     "title": "About Us",
     "subtitle": "Our Story",

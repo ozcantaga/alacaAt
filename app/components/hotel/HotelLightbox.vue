@@ -172,14 +172,14 @@ const whatsappLink = computed(() => {
         </div>
 
         <!-- RIGHT PANEL: Info Sidebar -->
-        <div class="hidden md:flex absolute top-0 right-0 h-full w-[30%] z-40 flex-col justify-between backdrop-blur-xl border-l">
+        <div class="hidden md:flex absolute top-0 right-0 h-full w-[30%] z-40 flex-col justify-between backdrop-blur-xl border-l border-white/10 text-white">
 
           <!-- Top: Title & Description -->
           <div class="p-10 pt-14 flex-1 overflow-y-auto">
 
             <!-- Room Mode -->
             <template v-if="room">
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-black tracking-[0.2em] uppercase mb-5 bg-(--ui-bg-elevated)">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/20 text-[10px] font-black tracking-[0.2em] uppercase mb-5 bg-white/10">
                 <UIcon name="i-heroicons-sparkles" class="w-3 h-3" />
                 Premium
               </div>
@@ -188,19 +188,19 @@ const whatsappLink = computed(() => {
                 {{ tRoom(room.name) }}
               </h2>
 
-              <div class="w-10 h-[1px] opacity-50 mb-5"></div>
+              <div class="w-10 h-[1px] opacity-50 mb-5 bg-white"></div>
 
-              <p class="leading-relaxed text-sm mb-6 text-[rgba(255,255,255,0.85)]" v-html="tRoom(room.description)">
+              <p class="leading-relaxed text-sm mb-6 text-white/85" v-html="tRoom(room.description)">
               </p>
 
               <!-- Metadata -->
               <div class="grid grid-cols-2 gap-3 mb-6">
-                <div class="p-3 rounded-lg border">
-                  <span class="block text-[10px] uppercase tracking-wider mb-1">Boyut</span>
+                <div class="p-3 rounded-lg border border-white/20 bg-white/5">
+                  <span class="block text-[10px] uppercase tracking-wider mb-1 text-white/60">Boyut</span>
                   <span class="font-medium text-sm">{{ room.size }} m²</span>
                 </div>
-                <div class="p-3 rounded-lg border">
-                  <span class="block text-[10px] uppercase tracking-wider mb-1">Kapasite</span>
+                <div class="p-3 rounded-lg border border-white/20 bg-white/5">
+                  <span class="block text-[10px] uppercase tracking-wider mb-1 text-white/60">Kapasite</span>
                   <span class="font-medium text-sm">{{ room.maxGuests }} Kişi</span>
                 </div>
               </div>
@@ -210,7 +210,7 @@ const whatsappLink = computed(() => {
                 <span
                   v-for="amenity in room.amenities?.slice(0, 6)"
                   :key="amenity"
-                  class="px-2.5 py-1 rounded-md border text-[11px]"
+                  class="px-2.5 py-1 rounded-md border border-white/20 bg-white/5 text-[11px] text-white/80"
                 >
                   {{ $t(`amenityNames.${amenity}`) || amenity }}
                 </span>
@@ -219,7 +219,7 @@ const whatsappLink = computed(() => {
 
             <!-- Gallery Mode -->
             <template v-else-if="items[currentIndex]">
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-black tracking-[0.2em] uppercase mb-5 bg-(--ui-bg-elevated)">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/20 text-[10px] font-black tracking-[0.2em] uppercase mb-5 bg-white/10">
                 <UIcon name="i-heroicons-photo" class="w-3 h-3" />
                 GALERİ
               </div>
@@ -227,13 +227,13 @@ const whatsappLink = computed(() => {
               <h2 class="font-serif text-2xl lg:text-4xl italic leading-tight mb-4" v-html="formatHotelName()">
               </h2>
 
-              <div class="w-10 h-[1px] opacity-50 mb-5"></div>
+              <div class="w-10 h-[1px] opacity-50 mb-5 bg-white"></div>
 
               <h3 class="text-lg font-medium text-white mb-2" v-if="items[currentIndex]?.alt">
                 {{ items[currentIndex]?.alt }}
               </h3>
 
-              <p class="leading-relaxed text-sm text-[rgba(255,255,255,0.85)]" v-if="items[currentIndex]?.description" v-html="items[currentIndex]?.description">
+              <p class="leading-relaxed text-sm text-white/85" v-if="items[currentIndex]?.description" v-html="items[currentIndex]?.description">
               </p>
             </template>
           </div>
@@ -243,7 +243,7 @@ const whatsappLink = computed(() => {
             <!-- Reservation -->
             <NuxtLink
               :to="localePath('/reservation')"
-              class="flex items-center justify-center gap-2.5 w-full px-6 py-3.5 rounded-xl font-bold text-sm tracking-wider uppercase transition-all duration-300 shadow-lg hover:shadow-xl bg-(--ui-bg-elevated) text-(--text-muted) hover:bg-(--color-primary-500) hover:text-(--text-inverse)"
+              class="flex items-center justify-center gap-2.5 w-full px-6 py-3.5 rounded-xl font-bold text-sm tracking-wider uppercase transition-all duration-300 shadow-lg hover:shadow-xl bg-white text-black hover:bg-gray-200"
             >
               <UIcon name="i-heroicons-calendar-days" class="w-5 h-5" />
               Rezervasyon Yap
@@ -254,9 +254,9 @@ const whatsappLink = computed(() => {
               :href="whatsappLink"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex items-center justify-center gap-2.5 w-full px-6 py-3.5 rounded-xl font-bold text-sm tracking-wider uppercase transition-all duration-300 shadow-lg hover:shadow-xl bg-(--ui-bg-elevated) text-(--text-muted) hover:bg-[#25D366] hover:text-white"
+              class="flex items-center justify-center gap-2.5 w-full px-6 py-3.5 rounded-xl font-bold text-sm tracking-wider uppercase transition-all duration-300 shadow-lg hover:shadow-xl bg-[#25D366] text-white hover:bg-[#20b858]"
             >
-              <svg class="w-5 h-5 text-white fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <UIcon name="i-simple-icons-whatsapp" class="w-5 h-5" />
               WhatsApp
             </a>
           </div>
@@ -271,14 +271,14 @@ const whatsappLink = computed(() => {
           <div class="flex gap-2 mt-3">
             <NuxtLink
               :to="localePath('/reservation')"
-              class="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-bold text-xs tracking-wider uppercase transition-all duration-300 bg-(--ui-bg-elevated) text-(--text-muted) hover:bg-(--color-primary-500) hover:text-(--text-inverse)"
+              class="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-bold text-xs tracking-wider uppercase transition-all duration-300 bg-white text-black hover:bg-gray-200"
             >
               Rezervasyon
             </NuxtLink>
             <a
               :href="whatsappLink"
               target="_blank"
-              class="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl transition-all duration-300 font-bold text-xs tracking-wider uppercase bg-(--ui-bg-elevated) text-(--text-muted) hover:bg-[#25D366] hover:text-white"
+              class="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl transition-all duration-300 font-bold text-xs tracking-wider uppercase bg-[#25D366] text-white hover:bg-[#20b858]"
             >
               WhatsApp
             </a>

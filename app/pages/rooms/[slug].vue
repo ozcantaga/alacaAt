@@ -109,6 +109,26 @@
                 />
               </div>
             </div>
+
+            <!-- FAQ Section -->
+            <div class="mt-16" v-if="config.faq && config.faq.length > 0">
+              <h2 class="text-xl font-heading font-bold text-(--text-heading) mb-6">
+                {{ $t('faq.title') }}
+              </h2>
+              <UAccordion 
+                :items="config.faq.map(item => ({ label: $t(item.question), content: $t(item.answer) }))" 
+                size="lg" 
+                variant="ghost"
+                multiple
+                class="bg-(--color-page-bg)  border-(--text-muted)/15"
+              >
+                <template #body="{ item }">
+                  <p class="text-sm text-gray-300 bg-white leading-relaxed px-4 pb-4 pt-1  p-2 md:p-3 rounded-2xl overflow-hidden shadow-inner ">
+                    {{ item.content }}
+                  </p>
+                </template>
+              </UAccordion>
+            </div>
           </div>
 
           <!-- Sidebar -->

@@ -107,6 +107,27 @@
     "spa": "Spa",
     "view": "Manzara"
   },
+  "faq": {
+    "title": "Sıkça sorulan sorular",
+    "q1": "Alacaat Otel oteli, tam geri ödeme için ücretsiz iptal olanağı sunuyor mu?",
+    "a1": "Evet. Alacaat Otel, sitemizden rezervasyon yapılabilen ve ücreti tamamen iade edilebilir odalar sunmaktadır. Ücreti tamamen iade edilebilir bir oda için rezervasyon yaptırdıysanız bu rezervasyon, konaklama yerinin iptal politikasına bağlı olarak girişten birkaç gün öncesine kadar iptal edilebilir. Kesin şartlar ve koşullar için bu konaklama yerinin iptal politikasını kontrol ettiğinizden emin olun.",
+    "q2": "Alacaat Otel içinde havuz var mı?",
+    "a2": "Evet, açık yüzme havuzu var.",
+    "q3": "Alacaat Otel evcil hayvan kabul ediyor mu?",
+    "a3": "Maalesef evcil hayvanlar kabul edilmemektedir.",
+    "q4": "Alacaat Otel, misafirlerine otelde otopark imkânı sunuyor mu?",
+    "a4": "Evet, ücretsiz valesiz otopark var.",
+    "q5": "Alacaat Otel havaalanı gidiş dönüş servisi sunuyor mu?",
+    "a5": "Evet, gidiş-dönüş havaalanı transfer servisi var. Kişi başı tek yön için 10 EUR ücret alınmaktadır.",
+    "q6": "Alacaat Otel için giriş ve çıkış saati kaçta?",
+    "a6": "Giriş işlemleri 14:00 ile herhangi bir zaman arasında yapılabilir. Çıkış saati: öğlen. Hızlı giriş ve çıkış ile temassız giriş ve çıkış imkânı sunulur.",
+    "q7": "Alacaat Otel ve yakınlarındaki imkânlar nelerdir?",
+    "a7": "Alacaat Otel, açık havuz ve bahçe sunar.",
+    "q8": "Alacaat Otel içinde veya yakınında restoran var mı?",
+    "a8": "Evet, otelde bir restoran var.",
+    "q9": "Alacaat Otel etrafındaki bölge nasıldır?",
+    "a9": "Alacaat Otel, Alaçatı Çarşı konumuna 13 dakikalık yürüyüş mesafesinde ve Alaçatı Cumartesi Pazarı konumuna 8 dakikalık yürüyüş mesafesindedir."
+  },
   "about": {
     "title": "Hakkımızda",
     "subtitle": "Hikayemiz",

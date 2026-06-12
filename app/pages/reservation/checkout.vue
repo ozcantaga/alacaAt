@@ -106,6 +106,24 @@ const currency = computed(() => {
   return basePrices.value[matchId]?.currency || '₺'
 })
 
+// İptal tarihi hesaplama (Girişten 15 gün önce)
+const cancellationDate = computed(() => {
+  if (!checkInDate.value) return null
+  const date = new Date(checkInDate.value)
+  date.setDate(date.getDate() - 15)
+  return date
+})
+
+const formatCancelDate = computed(() => {
+  if (!cancellationDate.value) return ''
+  return cancellationDate.value.toLocaleDateString('tr-TR', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' })
+})
+
+const formatCancelDateLong = computed(() => {
+  if (!cancellationDate.value) return ''
+  return cancellationDate.value.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' })
+})
+
 // Fiyat hesaplamaları — %15 indirim
 const DISCOUNT_RATE = 0.15
 const originalPricePerNight = computed(() => Math.round(pricePerNight.value / (1 - DISCOUNT_RATE)))
@@ -525,40 +543,42 @@ onBeforeUnmount(() => {
           </div>
 
 
-          <!-- İptal Politikası -->
+          <!-- İptal Politikası ve Talimatlar -->
           <div class="rounded-2xl border border-(--text-muted)/15 bg-(--ui-bg-elevated) shadow-lg p-6 md:p-8">
             <h2 class="font-serif text-xl italic mb-5 flex items-center gap-3 text-(--text-heading)">
               <span class="w-8 h-8 rounded-full flex items-center justify-center not-italic text-sm font-bold text-white shrink-0"
                     style="background-color: var(--text-highlight)">3</span>
-              İptal Politikası
+              Politikalar ve Talimatlar
             </h2>
-            <div class="space-y-3">
-              <div class="flex items-start gap-3 p-4 rounded-xl border border-(--text-muted)/15 bg-(--color-page-bg)">
-                <div class="w-8 h-8 rounded-full bg-green-500/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <UIcon name="i-heroicons-check" class="w-4 h-4 text-green-600" />
+            
+            <div class="space-y-6">
+              <!-- İptal Politikası -->
+              <div>
+                <h3 class="font-bold text-base mb-3 text-(--text-heading)">İptal politikası</h3>
+                <div class="bg-green-100/50 text-green-800 px-4 py-3 rounded-lg text-sm font-medium mb-3 border border-green-200">
+                  <ClientOnly>
+                    <span v-if="formatCancelDate">{{ formatCancelDate }} tarihinden önce tam geri ödemeli</span>
+                    <span v-else>Girişten 15 gün öncesine kadar tam geri ödemeli</span>
+                    <template #fallback><span>Girişten 15 gün öncesine kadar tam geri ödemeli</span></template>
+                  </ClientOnly>
                 </div>
-                <div>
-                  <p class="font-bold text-sm text-(--text-heading)">Ücretsiz İptal</p>
-                  <p class="text-sm text-(--text-muted) mt-0.5">Giriş tarihinden <strong>7 gün öncesine</strong> kadar yapılan iptallerde tam iade yapılır.</p>
-                </div>
+                <p class="text-sm text-(--text-muted) leading-relaxed">
+                  <ClientOnly>
+                    <span v-if="formatCancelDateLong">{{ formatCancelDateLong }} tarihinde saat 23:59 (konaklama yerinin yerel saati) sonrası iptal veya değişiklik yapılırsa ya da rezervasyona gelinmezse rezervasyon için ödenen toplam tutarın %20 kadarına eşit bir konaklama yeri ücreti alınır.</span>
+                    <span v-else>Belirtilen tarihten sonraki iptallerde %20 kesinti uygulanır.</span>
+                    <template #fallback><span>Belirtilen tarihten sonraki iptallerde %20 kesinti uygulanır.</span></template>
+                  </ClientOnly>
+                </p>
               </div>
-              <div class="flex items-start gap-3 p-4 rounded-xl border border-(--text-muted)/15 bg-(--color-page-bg)">
-                <div class="w-8 h-8 rounded-full bg-amber-500/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <UIcon name="i-heroicons-exclamation-triangle" class="w-4 h-4 text-amber-600" />
-                </div>
-                <div>
-                  <p class="font-bold text-sm text-(--text-heading)">Kısmi İptal</p>
-                  <p class="text-sm text-(--text-muted) mt-0.5">Giriş tarihine <strong>3–7 gün</strong> kala yapılan iptallerde 1 gece tutarı tahsil edilir.</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3 p-4 rounded-xl border border-(--text-muted)/15 bg-(--color-page-bg)">
-                <div class="w-8 h-8 rounded-full bg-red-500/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <UIcon name="i-heroicons-x-circle" class="w-4 h-4 text-red-500" />
-                </div>
-                <div>
-                  <p class="font-bold text-sm text-(--text-heading)">İptal Yapılamaz</p>
-                  <p class="text-sm text-(--text-muted) mt-0.5">Giriş tarihine <strong>3 günden az</strong> kalan rezervasyonlarda iade yapılmaz.</p>
-                </div>
+
+              <hr class="border-(--text-muted)/15" />
+
+              <!-- Özel Giriş Talimatları -->
+              <div>
+                <h3 class="font-bold text-base mb-3 text-(--text-heading)">Özel giriş talimatları</h3>
+                <p class="text-sm text-(--text-muted) leading-relaxed">
+                  Bu konaklama yeri havaalanı transfer servisi sunmaktadır (bu hizmet ücretli olabilir); misafirler seyahate çıkmadan önce rezervasyon onayındaki iletişim bilgilerini kullanarak varış tarihi detaylarını konaklama yerine bildirmelidir. Misafirleri konaklama yerine varışta resepsiyon personeli karşılayacaktır. Konaklama yeri tarafından sağlanan bilgiler, otomatik çeviri araçları kullanılarak çevrilmiş olabilir.
+                </p>
               </div>
             </div>
           </div>
