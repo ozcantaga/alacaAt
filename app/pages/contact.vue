@@ -54,7 +54,7 @@ onMounted(() => {
     window.removeEventListener('keydown', init)
   }
   
-  interactionTimer = setTimeout(init, 1500)
+  interactionTimer = setTimeout(init, 8500)
   window.addEventListener('scroll', init, { passive: true, once: true })
   window.addEventListener('mousemove', init, { passive: true, once: true })
   window.addEventListener('touchstart', init, { passive: true, once: true })
@@ -78,7 +78,6 @@ onMounted(() => {
         </h1>
       </header>
 
-      <template v-if="loadBelowFold || !isClient">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-stretch mb-20">
         
         <!-- Sol: İletişim Bilgileri (Tasarımınızdan) -->
@@ -179,7 +178,7 @@ onMounted(() => {
       <!-- Alt: Harita (Performance fixed with Lazy Loading) -->
       <div v-if="googleMapsLink" class="w-full mt-10 animate-fade-in-up animate-delay-400">
         <div class="relative p-3 md:p-4 rounded-[2.5rem] shadow-inner bg-black/5  overflow-hidden min-h-[400px] md:min-h-[500px]">
-          <iframe 
+          <iframe v-if="loadBelowFold"
             :src="googleMapsLink"
             class="w-full h-[400px] md:h-[500px] rounded-[1.8rem] grayscale hover:grayscale-0 transition-all duration-1000"
             style="border:0;" 
@@ -198,7 +197,6 @@ onMounted(() => {
         </div>
       </div>
 
-      </template>
     </div>
   </div>
 </template>

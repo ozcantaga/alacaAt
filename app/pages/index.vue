@@ -22,7 +22,6 @@
     </LayoutAppHero>
 
     <!-- Deferred Below-the-Fold Content -->
-    <template v-if="loadBelowFold || !isClient">
       <!-- Welcome Section -->
       <section id="welcome" class="section-padding">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -273,7 +272,6 @@
           </div>
         </div>
       </section>
-    </template>
   </div>
 </template>
 
@@ -284,27 +282,6 @@ const localePath = useLocalePath()
 
 // Show first 6 rooms on home page for the slider
 const featuredRooms = computed(() => config.rooms.slice(0, 6))
-
-const isClient = import.meta.client
-const loadBelowFold = ref(false)
-
-onMounted(() => {
-  let interactionTimer: ReturnType<typeof setTimeout> | null = null
-  const init = () => {
-    if (loadBelowFold.value) return
-    loadBelowFold.value = true
-    if (interactionTimer) clearTimeout(interactionTimer)
-    window.removeEventListener('scroll', init)
-    window.removeEventListener('mousemove', init)
-    window.removeEventListener('touchstart', init)
-  }
-  
-  interactionTimer = setTimeout(init, 1500)
-  window.addEventListener('scroll', init, { passive: true, once: true })
-  window.addEventListener('mousemove', init, { passive: true, once: true })
-  window.addEventListener('touchstart', init, { passive: true, once: true })
-  window.addEventListener('keydown', init, { passive: true, once: true }) // Klavye kullanımını da yakala
-})
 
 // Page SEO
 useHead({

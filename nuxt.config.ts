@@ -25,6 +25,14 @@ export default defineNuxtConfig({
     '@nuxtjs/seo',
   ],
 
+  // ─── Fonts Optimization ──────────────────────────────────────────
+  fonts: {
+    families: [
+      { name: 'Inter', provider: 'google', subsets: ['latin', 'latin-ext'] },
+      { name: 'Cormorant Garamond', provider: 'google', subsets: ['latin', 'latin-ext'] }
+    ]
+  },
+
   // ─── CSS ─────────────────────────────────────────────────────────
   css: ['~/assets/css/main.css'],
 
@@ -82,7 +90,7 @@ export default defineNuxtConfig({
   // ─── Image Optimization ──────────────────────────────────────────
   image: {
     provider: 'vercel',
-    quality: 70,
+    quality: 75,
     format: ['avif', 'webp'],
     screens: {
       xs: 320,

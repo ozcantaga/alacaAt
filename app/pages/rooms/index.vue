@@ -23,7 +23,6 @@
     </section>
 
     <!-- CTA -->
-    <template v-if="loadBelowFold || !isClient">
       <SharedCtaSection
         title-key="home.ctaTitle"
         description-key="rooms.priceOnRequest"
@@ -32,7 +31,6 @@
         secondary-button-key="nav.contact"
         secondary-link="/contact"
       />
-    </template>
   </div>
 </template>
 
@@ -42,38 +40,7 @@ import { ref, computed, onMounted } from 'vue'
 const { config, getRooms } = useHotelConfig()
 const localePath = useLocalePath()
 
-const isClient = import.meta.client
-const loadBelowFold = ref(false)
-const clientLimit = ref(1)
-
-if (isClient) {
-  clientLimit.value = window.innerWidth >= 1024 ? 3 : 1
-}
-
-const visibleRooms = computed(() => {
-  const allRooms = getRooms()
-  if (!isClient || loadBelowFold.value) return allRooms
-  return allRooms.slice(0, clientLimit.value)
-})
-
-onMounted(() => {
-  let interactionTimer: ReturnType<typeof setTimeout> | null = null
-  const init = () => {
-    if (loadBelowFold.value) return
-    loadBelowFold.value = true
-    if (interactionTimer) clearTimeout(interactionTimer)
-    window.removeEventListener('scroll', init)
-    window.removeEventListener('mousemove', init)
-    window.removeEventListener('touchstart', init)
-    window.removeEventListener('keydown', init)
-  }
-  
-  interactionTimer = setTimeout(init, 1500)
-  window.addEventListener('scroll', init, { passive: true, once: true })
-  window.addEventListener('mousemove', init, { passive: true, once: true })
-  window.addEventListener('touchstart', init, { passive: true, once: true })
-  window.addEventListener('keydown', init, { passive: true, once: true })
-})
+const visibleRooms = computed(() => getRooms())
 
 useHead({
   title: `${useI18n().t('rooms.title')}`,
