@@ -27,6 +27,8 @@
           :fetchpriority="priority && idx === 0 ? 'high' : 'auto'"
           format="webp"
           sizes="sm:100vw md:50vw lg:400px"
+          width="640"
+          height="400"
           style="min-width: 100%"
         />
       </div>
@@ -204,11 +206,14 @@ onBeforeUnmount(stopAuto)
 let touchStartX = 0
 
 const onTouchStart = (e: TouchEvent) => {
-  touchStartX = e.changedTouches[0].clientX
+  const touch = e.changedTouches[0]
+  if (touch) touchStartX = touch.clientX
 }
 
 const onTouchEnd = (e: TouchEvent) => {
-  const delta = touchStartX - e.changedTouches[0].clientX
+  const touch = e.changedTouches[0]
+  if (!touch) return
+  const delta = touchStartX - touch.clientX
   if (Math.abs(delta) < 40) return  // çok kısa kaydırma → yoksay
   if (delta > 0) {
     nextImage()  // sola kaydır → sonraki

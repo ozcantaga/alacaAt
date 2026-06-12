@@ -87,9 +87,11 @@ const filteredPlaces = computed(() => {
             <NuxtImg
               :src="place.image"
               :alt="place.title"
-              sizes="xs:50vw sm:50vw md:33vw lg:33vw xl:400px"
+              sizes="xs:45vw sm:45vw md:30vw lg:30vw xl:300px"
               format="webp"
-              quality="50"
+              quality="75"
+              width="300"
+              height="400"
               :loading="index < 3 ? 'eager' : 'lazy'"
               :fetchpriority="index === 0 ? 'high' : 'auto'"
               :preload="index === 0"

@@ -106,9 +106,11 @@ const openGallery = (id: string) => {
           <NuxtImg
             :src="item.src"
             :alt="item.alt"
-            sizes="xs:100vw sm:50vw md:33vw lg:33vw xl:400px"
+            sizes="xs:100vw sm:50vw md:50vw lg:33vw xl:350px"
             format="webp"
-            quality="50"
+            quality="75"
+            width="400"
+            height="300"
             :loading="index < 4 ? 'eager' : 'lazy'"
             :fetchpriority="index < 2 ? 'high' : 'auto'"
             class="w-full h-full object-cover transition-transform duration-[6000ms] group-hover:scale-110"

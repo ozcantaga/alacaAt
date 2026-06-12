@@ -67,7 +67,7 @@ onMounted(() => {
           <span class="text-[9px] font-bold tracking-[0.5em] uppercase">{{ t('contact.badge') }}</span>
           <div class="w-6 h-px bg-current"></div>
         </div>
-        <h1 class="font-serif text-4xl md:text-6xl italic leading-tight">
+        <h1 class="font-serif text-4xl md:text-6xl italic leading-tight text-(--text-heading)">
           {{ t('contact.titleMain') }} <br>
           <span class="">{{ t('contact.titleSub') }}</span>
         </h1>

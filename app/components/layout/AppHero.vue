@@ -6,15 +6,30 @@
   >
     <!-- Background Image -->
     <div class="absolute inset-0 z-0">
-      <Transition name="fade" mode="out-in">
+      <!-- İlk görsel: Transition yok, LCP için anında render -->
+      <NuxtImg
+        v-if="currentImageIndex === 0"
+        :src="images[0]"
+        :alt="config.name"
+        class="w-full h-full object-cover"
+        loading="eager"
+        fetchpriority="high"
+        :preload="true"
+        format="webp"
+        quality="75"
+        sizes="100vw"
+        width="1920"
+        height="1080"
+      />
+      <!-- Sonraki görseller: Transition ile -->
+      <Transition v-else name="fade" mode="out-in">
         <NuxtImg
           :key="currentImageIndex"
           :src="images[currentImageIndex]"
           :alt="config.name"
           class="w-full h-full object-cover"
-          :loading="currentImageIndex === 0 ? 'eager' : 'lazy'"
-          :fetchpriority="currentImageIndex === 0 ? 'high' : 'auto'"
-          :preload="currentImageIndex === 0"
+          loading="lazy"
+          fetchpriority="auto"
           format="webp"
           quality="75"
           sizes="100vw"
@@ -23,6 +38,7 @@
         />
       </Transition>
     </div>
+
 
     <!-- Gradient Overlay for High Contrast -->
     <div
@@ -183,6 +199,7 @@ const whatsappUrl = computed(() => {
   else if (!cleaned.startsWith('90') && cleaned.length === 10) cleaned = '90' + cleaned
   return `https://wa.me/${cleaned}`
 })
+
 </script>
 
 

@@ -10,8 +10,25 @@ export default defineNuxtConfig({
 
   vite: {
     define: {
-      // Production'da tam hydration mismatch detaylarını göster
-      __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'true'
+      // Production'da hydration mismatch detaylarını devre dışı bırak (performans)
+      __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'false'
+    },
+    build: {
+      cssCodeSplit: true,
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            // i18n modülünü ayrı chunk'a al
+            if (id.includes('@intlify') || id.includes('@nuxtjs/i18n')) {
+              return 'vendor-i18n'
+            }
+            // Nuxt UI ve Reka UI'ı ayrı chunk'a al
+            if (id.includes('@nuxt/ui') || id.includes('reka-ui')) {
+              return 'vendor-ui'
+            }
+          }
+        }
+      }
     }
   },
 
@@ -81,19 +98,20 @@ export default defineNuxtConfig({
       Inter: [400, 500, 600, 700],
       'Cormorant+Garamond': {
         wght: [400, 500, 600, 700],
-        ital: [400, 500, 600, 700]
+        ital: [400, 600]
       },
     },
     display: 'swap',
-    download: true,
-    preload: true,
+    download: false,
+    preload: false,
+    useStylesheet: true,
   },
 
   // ─── Image Optimization ──────────────────────────────────────────
   image: {
   provider: 'vercel', 
-    quality: 60,
-    format: ['webp', 'avif'],
+    quality: 75,
+    format: ['avif', 'webp'],
     screens: {
       xs: 320,
       sm: 640,
@@ -116,7 +134,7 @@ export default defineNuxtConfig({
 
   // ─── Performance ─────────────────────────────────────────────────
   experimental: {
-    payloadExtraction: false,
+    payloadExtraction: true,
   },
 
   // ─── Nitro (Server) ──────────────────────────────────────────────
@@ -125,12 +143,28 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: true,
       routes: ['/sitemap.xml'],
+      ignore: ['/_vercel'],
+      failOnError: false,
     },
     externals: {
       inline: [/^vue/, /^@vue/]
     }
   },
   routeRules: {
+    // ─── Statik sayfaları prerender et (TTFB azaltma) ────────────
+    '/': { prerender: true },
+    '/about': { prerender: true },
+    '/rooms': { prerender: true },
+    '/gallery': { prerender: true },
+    '/contact': { prerender: true },
+    '/guide': { prerender: true },
+    '/en': { prerender: true },
+    '/en/about': { prerender: true },
+    '/en/rooms': { prerender: true },
+    '/en/gallery': { prerender: true },
+    '/en/contact': { prerender: true },
+    '/en/guide': { prerender: true },
+    // ─── Cache kuralları ─────────────────────────────────────────
     '/_ipx/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
     '/images/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
     '/_nuxt/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
