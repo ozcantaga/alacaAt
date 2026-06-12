@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div data-allow-mismatch>
     <!-- Hero -->
     <LayoutAppHero
       :images="[config.images.about]"
@@ -12,7 +12,9 @@
       :auto-slide="false"
     />
 
-    <!-- Story Section -->
+    <!-- Deferred Below-the-Fold Content -->
+    <template v-if="loadBelowFold || !isClient">
+      <!-- Story Section -->
     <section class="section-padding">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -26,7 +28,7 @@
     loading="eager"
     fetchpriority="high"
     format="webp"
-    quality="85"
+    quality="75"
     width="1200"
     height="800"
     sizes="100vw sm:100vw md:50vw lg:500px xl:600px"
@@ -202,6 +204,7 @@
         </div>
       </div>
     </section>
+    </template>
   </div>
 </template>
 
@@ -214,7 +217,27 @@ const { locale } = useI18n()
 const videoContainer = ref<HTMLElement | null>(null)
 const showVideo = ref(false)
 
+const isClient = import.meta.client
+const loadBelowFold = ref(false)
+
 onMounted(() => {
+  let interactionTimer: ReturnType<typeof setTimeout> | null = null
+  const init = () => {
+    if (loadBelowFold.value) return
+    loadBelowFold.value = true
+    if (interactionTimer) clearTimeout(interactionTimer)
+    window.removeEventListener('scroll', init)
+    window.removeEventListener('mousemove', init)
+    window.removeEventListener('touchstart', init)
+    window.removeEventListener('keydown', init)
+  }
+  
+  interactionTimer = setTimeout(init, 1500)
+  window.addEventListener('scroll', init, { passive: true, once: true })
+  window.addEventListener('mousemove', init, { passive: true, once: true })
+  window.addEventListener('touchstart', init, { passive: true, once: true })
+  window.addEventListener('keydown', init, { passive: true, once: true })
+
   const observer = new IntersectionObserver((entries) => {
     if (entries[0]?.isIntersecting) {
       showVideo.value = true

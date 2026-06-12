@@ -13,22 +13,39 @@ const props = defineProps<{
 const containerRef = ref<HTMLElement | null>(null)
 const currentIndex = ref(0)
 
+let cachedItemWidth = 0
+let cachedMaxScrollLeft = 0
+let isCacheValid = false
+
+const calculateDimensions = () => {
+  if (!containerRef.value) return
+  const itemWidth = containerRef.value.firstElementChild?.clientWidth || 0
+  cachedItemWidth = itemWidth
+  cachedMaxScrollLeft = containerRef.value.scrollWidth - containerRef.value.clientWidth
+  isCacheValid = true
+}
+
 const updateIndex = () => {
   if (!containerRef.value) return
+
+  if (!isCacheValid) {
+    calculateDimensions()
+  }
 
   requestAnimationFrame(() => {
     if (!containerRef.value) return
     const scrollLeft = containerRef.value.scrollLeft
-    const itemWidth = containerRef.value.firstElementChild?.clientWidth || 0
     const gap = 32
 
-    const maxScrollLeft = containerRef.value.scrollWidth - containerRef.value.clientWidth
-
-    if (itemWidth > 0) {
-      if (scrollLeft >= maxScrollLeft - 10) {
-        currentIndex.value = props.items.length - 1
+    if (cachedItemWidth > 0) {
+      let newIndex = 0
+      if (scrollLeft >= cachedMaxScrollLeft - 10) {
+        newIndex = props.items.length - 1
       } else {
-        currentIndex.value = Math.round(scrollLeft / (itemWidth + gap))
+        newIndex = Math.round(scrollLeft / (cachedItemWidth + gap))
+      }
+      if (currentIndex.value !== newIndex) {
+        currentIndex.value = newIndex
       }
     }
   })
@@ -36,20 +53,20 @@ const updateIndex = () => {
 
 const nextSlide = () => {
   if (!containerRef.value) return
-  const itemWidth = containerRef.value.firstElementChild?.clientWidth || 0
-  containerRef.value.scrollBy({ left: itemWidth + 32, behavior: 'smooth' })
+  calculateDimensions()
+  containerRef.value.scrollBy({ left: cachedItemWidth + 32, behavior: 'smooth' })
 }
 
 const prevSlide = () => {
   if (!containerRef.value) return
-  const itemWidth = containerRef.value.firstElementChild?.clientWidth || 0
-  containerRef.value.scrollBy({ left: -(itemWidth + 32), behavior: 'smooth' })
+  calculateDimensions()
+  containerRef.value.scrollBy({ left: -(cachedItemWidth + 32), behavior: 'smooth' })
 }
 
 const goTo = (idx: number) => {
   if (!containerRef.value) return
-  const itemWidth = containerRef.value.firstElementChild?.clientWidth || 0
-  containerRef.value.scrollTo({ left: idx * (itemWidth + 32), behavior: 'smooth' })
+  calculateDimensions()
+  containerRef.value.scrollTo({ left: idx * (cachedItemWidth + 32), behavior: 'smooth' })
 }
 
 const hasPrev = computed(() => currentIndex.value > 0)
@@ -61,11 +78,13 @@ const progressPercent = computed(() =>
 )
 
 onMounted(() => {
-  containerRef.value?.addEventListener('scroll', updateIndex)
+  containerRef.value?.addEventListener('scroll', updateIndex, { passive: true })
+  window.addEventListener('resize', () => { isCacheValid = false }, { passive: true })
 })
 
 onBeforeUnmount(() => {
   containerRef.value?.removeEventListener('scroll', updateIndex)
+  window.removeEventListener('resize', () => { isCacheValid = false })
 })
 
 defineExpose({ prevSlide, nextSlide, goTo, currentIndex })

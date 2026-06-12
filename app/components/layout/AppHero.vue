@@ -15,7 +15,7 @@
     fetchpriority="high"
     preload
     format="webp"
-    quality="85"
+    quality="75"
     sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
     width="1200"
     height="800"

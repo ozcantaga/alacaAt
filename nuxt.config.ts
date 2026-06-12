@@ -14,28 +14,13 @@ export default defineNuxtConfig({
       __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'false'
     },
     build: {
-      cssCodeSplit: true,
-      rollupOptions: {
-        output: {
-          manualChunks(id) {
-            // i18n modülünü ayrı chunk'a al
-            if (id.includes('@intlify') || id.includes('@nuxtjs/i18n')) {
-              return 'vendor-i18n'
-            }
-            // Nuxt UI ve Reka UI'ı ayrı chunk'a al
-            if (id.includes('@nuxt/ui') || id.includes('reka-ui')) {
-              return 'vendor-ui'
-            }
-          }
-        }
-      }
+      cssCodeSplit: true
     }
   },
 
   modules: [
     '@nuxt/image',
     '@nuxt/ui',
-    '@nuxtjs/google-fonts',
     '@nuxtjs/i18n',
     '@nuxtjs/seo',
   ],
@@ -92,25 +77,12 @@ export default defineNuxtConfig({
     },
   },
 
-  // ─── Google Fonts ────────────────────────────────────────────────
-  googleFonts: {
-    families: {
-      Inter: [400, 500, 600, 700],
-      'Cormorant+Garamond': {
-        wght: [400, 500, 600, 700],
-        ital: [400, 600]
-      },
-    },
-    display: 'swap',
-    download: false,
-    preload: false,
-    useStylesheet: true,
-  },
+
 
   // ─── Image Optimization ──────────────────────────────────────────
   image: {
     provider: 'vercel',
-    quality: 85,
+    quality: 70,
     format: ['avif', 'webp'],
     screens: {
       xs: 320,
