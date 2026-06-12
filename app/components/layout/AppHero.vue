@@ -5,7 +5,7 @@
     :class="fullHeight ? 'h-screen min-h-[600px]' : 'h-[70vh] min-h-[500px]'"
   >
     <!-- Background Image -->
-    <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 z-0 bg-slate-900">
       <!-- İlk görsel: Transition yok, LCP için anında render -->
       <NuxtImg
         v-if="currentImageIndex === 0"
@@ -15,11 +15,12 @@
         loading="eager"
         fetchpriority="high"
         :preload="true"
+        unoptimized
         format="webp"
         quality="75"
         sizes="100vw"
-        width="1920"
-        height="1080"
+        width="1200"
+        height="800"
       />
       <!-- Sonraki görseller: Transition ile -->
       <Transition v-else name="fade" mode="out-in">
@@ -30,11 +31,12 @@
           class="w-full h-full object-cover"
           loading="lazy"
           fetchpriority="auto"
+          unoptimized
           format="webp"
           quality="75"
           sizes="100vw"
-          width="1920"
-          height="1080"
+          width="1200"
+          height="800"
         />
       </Transition>
     </div>

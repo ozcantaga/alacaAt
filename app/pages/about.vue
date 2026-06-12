@@ -18,16 +18,17 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <!-- Image -->
           <div class="animate-slide-in-left">
-            <div class="img-zoom rounded-2xl overflow-hidden aspect-[4/3] shadow-xl">
+            <div class="img-zoom rounded-2xl overflow-hidden aspect-[4/3] shadow-xl bg-slate-900">
               <NuxtImg
                 :src="config.gallery[0]?.src || config.images.hero[0]"
                 :alt="config.name"
                 class="w-full h-full object-cover"
                 loading="eager"
                 fetchpriority="high"
+                unoptimized
                 format="webp"
-                width="600"
-                height="450"
+                width="1200"
+                height="800"
                 sizes="xs:100vw sm:100vw md:50vw lg:500px xl:600px"
               />
             </div>

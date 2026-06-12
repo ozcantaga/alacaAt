@@ -203,7 +203,7 @@ export const hotelConfig: HotelConfig = {
   images: {
     logo: '/logo/logo.avif',
     logoDark: '/logo/logo.avif',
-    about: '/images/abaout/about.webp',
+    about: '/images/abaout/about.avif',
     hero: [
       '/images/hero/hero.webp',
     ],
