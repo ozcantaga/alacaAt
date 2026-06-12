@@ -39,26 +39,31 @@ const googleMapsLink = computed(() => {
   return `https://maps.google.com/maps?q=${config.location.lat},${config.location.lng}&z=${config.location.mapZoom}&output=embed`
 })
 
-// Performance Fix: Lazy Load Map
-const mapContainer = ref<HTMLElement | null>(null)
-const showMap = ref(false)
+const isClient = import.meta.client
+const loadBelowFold = ref(false)
 
 onMounted(() => {
-  const observer = new IntersectionObserver((entries) => {
-    if (entries[0]?.isIntersecting) {
-      showMap.value = true
-      observer.disconnect()
-    }
-  }, { rootMargin: '300px' })
-
-  if (mapContainer.value) {
-    observer.observe(mapContainer.value)
+  let interactionTimer: ReturnType<typeof setTimeout> | null = null
+  const init = () => {
+    if (loadBelowFold.value) return
+    loadBelowFold.value = true
+    if (interactionTimer) clearTimeout(interactionTimer)
+    window.removeEventListener('scroll', init)
+    window.removeEventListener('mousemove', init)
+    window.removeEventListener('touchstart', init)
+    window.removeEventListener('keydown', init)
   }
+  
+  interactionTimer = setTimeout(init, 1500)
+  window.addEventListener('scroll', init, { passive: true, once: true })
+  window.addEventListener('mousemove', init, { passive: true, once: true })
+  window.addEventListener('touchstart', init, { passive: true, once: true })
+  window.addEventListener('keydown', init, { passive: true, once: true })
 })
 </script>
 
 <template>
-  <div class="min-h-screen pt-32 md:pt-44 pb-20 dark:bg-(--color-primary-600) transition-colors duration-500">
+  <div class="min-h-screen pt-32 md:pt-44 pb-20 dark:bg-(--color-primary-600) transition-colors duration-500" data-allow-mismatch>
     <div class="max-w-6xl mx-auto px-6">
       
       <header class="text-center mb-16 md:mb-24 animate-fade-in-up dark:text-(--text-inverse) transition-colors duration-500">
@@ -73,6 +78,7 @@ onMounted(() => {
         </h1>
       </header>
 
+      <template v-if="loadBelowFold || !isClient">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-stretch mb-20">
         
         <!-- Sol: İletişim Bilgileri (Tasarımınızdan) -->
@@ -171,10 +177,9 @@ onMounted(() => {
       </div>
 
       <!-- Alt: Harita (Performance fixed with Lazy Loading) -->
-      <div v-if="googleMapsLink" ref="mapContainer" class="w-full mt-10 animate-fade-in-up animate-delay-400">
+      <div v-if="googleMapsLink" class="w-full mt-10 animate-fade-in-up animate-delay-400">
         <div class="relative p-3 md:p-4 rounded-[2.5rem] shadow-inner bg-black/5  overflow-hidden min-h-[400px] md:min-h-[500px]">
           <iframe 
-            v-if="showMap"
             :src="googleMapsLink"
             class="w-full h-[400px] md:h-[500px] rounded-[1.8rem] grayscale hover:grayscale-0 transition-all duration-1000"
             style="border:0;" 
@@ -193,6 +198,7 @@ onMounted(() => {
         </div>
       </div>
 
+      </template>
     </div>
   </div>
 </template>

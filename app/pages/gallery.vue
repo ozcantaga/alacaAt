@@ -60,9 +60,40 @@ const allItems = computed(() => {
 })
 
 // Filtreleme
+const isClient = import.meta.client
+const loadBelowFold = ref(false)
+const clientLimit = ref(6)
+
+if (isClient) {
+  clientLimit.value = window.innerWidth >= 1024 ? 12 : 4
+}
+
 const filteredGallery = computed(() => {
-  if (activeCategory.value === 'all') return allItems.value
-  return allItems.value.filter(item => item.technicalCategory === activeCategory.value)
+  let list = allItems.value
+  if (activeCategory.value !== 'all') {
+    list = list.filter(item => item.technicalCategory === activeCategory.value)
+  }
+  if (!isClient || loadBelowFold.value) return list
+  return list.slice(0, clientLimit.value)
+})
+
+onMounted(() => {
+  let interactionTimer: ReturnType<typeof setTimeout> | null = null
+  const init = () => {
+    if (loadBelowFold.value) return
+    loadBelowFold.value = true
+    if (interactionTimer) clearTimeout(interactionTimer)
+    window.removeEventListener('scroll', init)
+    window.removeEventListener('mousemove', init)
+    window.removeEventListener('touchstart', init)
+    window.removeEventListener('keydown', init)
+  }
+  
+  interactionTimer = setTimeout(init, 1500)
+  window.addEventListener('scroll', init, { passive: true, once: true })
+  window.addEventListener('mousemove', init, { passive: true, once: true })
+  window.addEventListener('touchstart', init, { passive: true, once: true })
+  window.addEventListener('keydown', init, { passive: true, once: true })
 })
 
 // Galeri Açma
@@ -74,7 +105,7 @@ const openGallery = (id: string) => {
 </script>
 
 <template>
-  <div class="min-h-screen pt-32 pb-20">
+  <div class="min-h-screen pt-32 pb-20" data-allow-mismatch>
     
     <SharedPageHeader
       badge="gallery.subtitle"

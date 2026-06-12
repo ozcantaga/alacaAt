@@ -47,14 +47,46 @@ const allPlaces = computed(() => {
 
 const activeCategory = ref('all')
 const enableAnimation = ref(false)
+
+const isClient = import.meta.client
+const loadBelowFold = ref(false)
+const clientLimit = ref(6)
+
+if (isClient) {
+  clientLimit.value = window.innerWidth >= 1024 ? 9 : 4
+}
+
 const filteredPlaces = computed(() => {
-  if (activeCategory.value === 'all') return allPlaces.value
-  return allPlaces.value.filter(p => p.catKey === activeCategory.value)
+  let list = allPlaces.value
+  if (activeCategory.value !== 'all') {
+    list = list.filter(p => p.catKey === activeCategory.value)
+  }
+  if (!isClient || loadBelowFold.value) return list
+  return list.slice(0, clientLimit.value)
+})
+
+onMounted(() => {
+  let interactionTimer: ReturnType<typeof setTimeout> | null = null
+  const init = () => {
+    if (loadBelowFold.value) return
+    loadBelowFold.value = true
+    if (interactionTimer) clearTimeout(interactionTimer)
+    window.removeEventListener('scroll', init)
+    window.removeEventListener('mousemove', init)
+    window.removeEventListener('touchstart', init)
+    window.removeEventListener('keydown', init)
+  }
+  
+  interactionTimer = setTimeout(init, 1500)
+  window.addEventListener('scroll', init, { passive: true, once: true })
+  window.addEventListener('mousemove', init, { passive: true, once: true })
+  window.addEventListener('touchstart', init, { passive: true, once: true })
+  window.addEventListener('keydown', init, { passive: true, once: true })
 })
 </script>
 
 <template>
-  <div class="min-h-screen pt-32 pb-20 font-sans">
+  <div class="min-h-screen pt-32 pb-20 font-sans" data-allow-mismatch>
     
     <SharedPageHeader
       title="guide.titleFull"
