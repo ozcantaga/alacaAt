@@ -35,7 +35,7 @@
       <!-- Hero Image -->
       <div class="flex justify-center mb-10 px-2">
         <div class="w-full max-w-[650px] aspect-video md:aspect-[21/9] rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:shadow-none border-4 border-white dark:border-(--ui-bg-elevated)">
-          <NuxtImg :src="activeCategory.heroImage" width="800" quality="80" format="webp" class="w-full h-full object-cover" />
+          <NuxtImg :src="activeCategory.heroImage" width="800" quality="75" format="webp" class="w-full h-full object-cover" />
         </div>
       </div>
 

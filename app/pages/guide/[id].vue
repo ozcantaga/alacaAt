@@ -176,7 +176,7 @@ watchEffect(() => {
                       width="200"
                       height="200"
                       format="webp"
-                      quality="70"
+                      quality="75"
                       class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       sizes="xs:150px sm:200px md:200px"
                     />
