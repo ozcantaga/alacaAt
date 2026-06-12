@@ -20,10 +20,10 @@
   --ui-bg-elevated: rgba(255, 255, 255, 0.85);
 
   /* 2. METİN RENKLERİ */
-  --text-heading: #3D405B;
-  --text-body: #3D405B;
+  --text-heading: #2b2d42;
+  --text-body: #2b2d42;
   --text-muted: #3D405B;
-  --text-highlight: #b1442a; /* Improved contrast */
+  --text-highlight: #9c351e; /* Improved contrast */
 
   /* 3. BUTON & CTA RENKLERİ */
   --color-primary-500: #E07A5F;

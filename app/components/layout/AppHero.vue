@@ -16,7 +16,7 @@
           :fetchpriority="currentImageIndex === 0 ? 'high' : 'auto'"
           :preload="currentImageIndex === 0"
           format="webp"
-          quality="50"
+          quality="75"
           sizes="100vw"
           width="1920"
           height="1080"
@@ -162,17 +162,7 @@ onMounted(() => {
   startAutoSlide()
 })
 
-// İlk hero resmini preload et (head tag olarak)
-useHead({
-  link: [
-    {
-      rel: 'preload',
-      as: 'image',
-      href: images.value[0],
-      fetchpriority: 'high',
-    },
-  ],
-})
+
 
 onUnmounted(() => {
   stopAutoSlide()

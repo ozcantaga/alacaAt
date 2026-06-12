@@ -15,19 +15,23 @@ const currentIndex = ref(0)
 
 const updateIndex = () => {
   if (!containerRef.value) return
-  const scrollLeft = containerRef.value.scrollLeft
-  const itemWidth = containerRef.value.firstElementChild?.clientWidth || 0
-  const gap = 32
 
-  const maxScrollLeft = containerRef.value.scrollWidth - containerRef.value.clientWidth
+  requestAnimationFrame(() => {
+    if (!containerRef.value) return
+    const scrollLeft = containerRef.value.scrollLeft
+    const itemWidth = containerRef.value.firstElementChild?.clientWidth || 0
+    const gap = 32
 
-  if (itemWidth > 0) {
-    if (scrollLeft >= maxScrollLeft - 10) {
-      currentIndex.value = props.items.length - 1
-    } else {
-      currentIndex.value = Math.round(scrollLeft / (itemWidth + gap))
+    const maxScrollLeft = containerRef.value.scrollWidth - containerRef.value.clientWidth
+
+    if (itemWidth > 0) {
+      if (scrollLeft >= maxScrollLeft - 10) {
+        currentIndex.value = props.items.length - 1
+      } else {
+        currentIndex.value = Math.round(scrollLeft / (itemWidth + gap))
+      }
     }
-  }
+  })
 }
 
 const nextSlide = () => {
