@@ -109,8 +109,8 @@ export default defineNuxtConfig({
 
   // ─── Image Optimization ──────────────────────────────────────────
   image: {
-  provider: 'vercel', 
-    quality: 75,
+    provider: 'vercel',
+    quality: 85,
     format: ['avif', 'webp'],
     screens: {
       xs: 320,

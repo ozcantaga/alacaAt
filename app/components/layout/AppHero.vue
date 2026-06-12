@@ -5,42 +5,38 @@
     :class="fullHeight ? 'h-screen min-h-[600px]' : 'h-[70vh] min-h-[500px]'"
   >
     <!-- Background Image -->
-    <div class="absolute inset-0 z-0 bg-slate-900">
-      <!-- İlk görsel: Transition yok, LCP için anında render -->
-      <NuxtImg
-        v-if="currentImageIndex === 0"
-        :src="images[0]"
-        :alt="config.name"
-        class="w-full h-full object-cover"
-        loading="eager"
-        fetchpriority="high"
-        :preload="true"
-        unoptimized
-        format="webp"
-        quality="75"
-        sizes="100vw"
-        width="1200"
-        height="800"
-      />
-      <!-- Sonraki görseller: Transition ile -->
-      <Transition v-else name="fade" mode="out-in">
-        <NuxtImg
-          :key="currentImageIndex"
-          :src="images[currentImageIndex]"
-          :alt="config.name"
-          class="w-full h-full object-cover"
-          loading="lazy"
-          fetchpriority="auto"
-          unoptimized
-          format="webp"
-          quality="75"
-          sizes="100vw"
-          width="1200"
-          height="800"
-        />
-      </Transition>
-    </div>
-
+<div class="absolute inset-0 z-0 bg-slate-900">
+  <NuxtImg
+    v-if="currentImageIndex === 0"
+    :src="images[0]"
+    :alt="config.name"
+    class="w-full h-full object-cover"
+    loading="eager"
+    fetchpriority="high"
+    preload
+    format="webp"
+    quality="85"
+    sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
+    width="1200"
+    height="800"
+  />
+  
+  <Transition v-else name="fade" mode="out-in">
+    <NuxtImg
+      :key="currentImageIndex"
+      :src="images[currentImageIndex]"
+      :alt="config.name"
+      class="w-full h-full object-cover"
+      loading="lazy"
+      fetchpriority="auto"
+      format="webp"
+      quality="80"
+      sizes="sm:100vw md:100vw lg:100vw xl:100vw 2xl:100vw"
+      width="1200"
+      height="800"
+    />
+  </Transition>
+</div>
 
     <!-- Gradient Overlay for High Contrast -->
     <div
