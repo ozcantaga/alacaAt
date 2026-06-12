@@ -92,6 +92,7 @@ const filteredPlaces = computed(() => {
               quality="50"
               :loading="index < 3 ? 'eager' : 'lazy'"
               :fetchpriority="index === 0 ? 'high' : 'auto'"
+              :preload="index === 0"
               class="w-full h-full object-cover transition-transform duration-[6000ms] group-hover:scale-110"
             />
             

@@ -106,7 +106,9 @@ const openGallery = (id: string) => {
           <NuxtImg
             :src="item.src"
             :alt="item.alt"
-            sizes="100vw sm:50vw lg:33vw xl:400px"
+            width="400"
+            height="300"
+            sizes="xs:100vw sm:50vw md:33vw lg:33vw xl:400px"
             format="webp"
             quality="50"
             :loading="index < 4 ? 'eager' : 'lazy'"

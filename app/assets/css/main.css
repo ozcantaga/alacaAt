@@ -23,7 +23,7 @@
   --text-heading: #3D405B;
   --text-body: #3D405B;
   --text-muted: #3D405B;
-  --text-highlight: #E07A5F;
+  --text-highlight: #b1442a; /* Improved contrast */
 
   /* 3. BUTON & CTA RENKLERİ */
   --color-primary-500: #E07A5F;
@@ -312,6 +312,19 @@
   opacity: 0;
 }
 
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1.2s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.hero-title {
+  font-weight: 500;
+}
+
 /* =============================================================================
    SHARED COMPONENT UTILITIES — Bileşenlerde tekrar eden stiller
    ============================================================================= */
@@ -388,4 +401,22 @@
 ::selection {
   background: var(--color-primary-500);
   color: #ffffff;
+}
+
+/* Silver Glow Efekti (TopBar'dan taşındı) */
+.silver-glow {
+  position: absolute; 
+  top: 0; 
+  left: -100%; 
+  width: 40%; 
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  filter: blur(25px); 
+  transform: skewX(-45deg);
+  animation: silverMove 8s infinite ease-in-out;
+}
+
+@keyframes silverMove {
+  0% { transform: translateX(-100%) skewX(-45deg); }
+  100% { transform: translateX(350%) skewX(-45deg); }
 }

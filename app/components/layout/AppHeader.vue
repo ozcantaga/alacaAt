@@ -51,18 +51,20 @@ const isHomePage = computed(() => {
 
 const handleScroll = () => {
   if (!import.meta.client) return
-  const currentScroll = window.scrollY
-  
-  // 40px geçince ince (scrolled) stile geç
-  isScrolled.value = currentScroll > 40
-  
-  // Akıllı Gizleme: Aşağı kaydırınca menü yoksa gizle, yukarı kaydırınca göster
-  if (currentScroll > 120 && currentScroll > lastScrollPosition.value && !mobileMenuOpen.value) {
-    isVisible.value = false
-  } else {
-    isVisible.value = true
-  }
-  lastScrollPosition.value = currentScroll
+  window.requestAnimationFrame(() => {
+    const currentScroll = window.scrollY
+    
+    // 40px geçince ince (scrolled) stile geç
+    isScrolled.value = currentScroll > 40
+    
+    // Akıllı Gizleme: Aşağı kaydırınca menü yoksa gizle, yukarı kaydırınca göster
+    if (currentScroll > 120 && currentScroll > lastScrollPosition.value && !mobileMenuOpen.value) {
+      isVisible.value = false
+    } else {
+      isVisible.value = true
+    }
+    lastScrollPosition.value = currentScroll
+  })
 }
 
 onMounted(() => {
@@ -128,10 +130,8 @@ const toggleMobileMenu = () => {
     fetchpriority="high"
     format="avif" 
     :alt="config.name"
-    width="350"
-    height="175"
-    sizes="xs:200px sm:250px md:300px lg:350px"
-    densities="x1 x2"
+    width="320"
+    height="160"
     class="transition-all duration-700 group-hover:scale-105 shrink-0 object-contain w-auto"
     :class="isMounted && isScrolled ? 'h-10 md:h-12' : 'h-16 md:h-20'"
   

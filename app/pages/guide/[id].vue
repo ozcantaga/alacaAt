@@ -93,7 +93,7 @@ watchEffect(() => {
     <div v-if="place">
       <section class="relative h-[80vh] flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
-          <NuxtImg :src="place.image" :alt="place.title" sizes="xs:640px sm:768px md:1024px lg:1280px" fetchpriority="high" format="webp" quality="80" class="w-full h-full object-cover animate-slow-zoom opacity-80" loading="eager" />
+          <NuxtImg :src="place.image" :alt="place.title" sizes="xs:640px sm:768px md:1024px lg:1280px" fetchpriority="high" preload format="webp" quality="80" class="w-full h-full object-cover animate-slow-zoom opacity-80" loading="eager" />
           <div class="absolute inset-0"></div>
         </div>
         <div class="relative z-10 text-center px-6">

@@ -103,7 +103,9 @@
                   class="w-full h-full object-cover"
                   loading="lazy"
                   format="webp"
-                  sizes="sm:50vw md:33vw lg:400px"
+                  width="400"
+                  height="300"
+                  sizes="xs:50vw sm:50vw md:33vw lg:400px xl:500px"
                 />
               </div>
             </div>
@@ -135,7 +137,7 @@
                   </div>
                 </div>
 
-                <NuxtLink :to="localePath('/reservation')">
+                <NuxtLink :to="localePath('/reservation/checkout?room=' + room.slug)">
                   <UButton
                     :label="$t('nav.bookNow')"
                     block
@@ -188,11 +190,11 @@
 
         <!-- Other Rooms -->
         <div class="mt-20">
-          <SharedSectionHeading
+          <LazySharedSectionHeading
             :title="$t('rooms.otherRooms')"
           />
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <HotelRoomCard
+            <LazyHotelRoomCard
               v-for="otherRoom in otherRooms"
               :key="otherRoom.slug"
               :room="otherRoom"

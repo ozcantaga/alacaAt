@@ -70,14 +70,14 @@ const switchLang = async (code: string) => {
     <!-- SAĞ: Sosyal Medya (Sıkıştırılmış ve Sağa Yaslı) + Dil Değiştirici -->
     <div class="relative z-10 flex items-center justify-end h-full gap-2">
       <!-- Sosyal Medya İkonları -->
-      <div class="social-wrapper hidden sm:flex items-center translate-y-[1px] gap-3">
+      <div class="flex items-center hidden sm:flex translate-y-[1px] gap-3">
         <a
           v-if="config.social.instagram"
           :href="config.social.instagram"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Instagram"
-          class="flex items-center justify-center w-8 h-8 rounded-full transition-colors duration-300 hover:bg-black/10 hover:shadow-inner"
+          class="flex items-center justify-center w-8 h-8 rounded-full transition-colors duration-300 hover:bg-black/10 hover:shadow-inner scale-[0.85] sm:scale-100"
         >
           <UIcon name="i-simple-icons-instagram" class="w-4 h-4" />
         </a>
@@ -87,7 +87,7 @@ const switchLang = async (code: string) => {
           v-if="config.social.tripadvisor"
           :href="config.social.tripadvisor" 
           target="_blank" 
-          class="flex items-center justify-center w-8 h-8 rounded-full transition-colors duration-300 hover:bg-black/10 hover:shadow-inner"
+          class="flex items-center justify-center w-8 h-8 rounded-full transition-colors duration-300 hover:bg-black/10 hover:shadow-inner scale-[0.85] sm:scale-100"
           aria-label="TripAdvisor"
         >
           <UIcon name="i-simple-icons-tripadvisor" class="w-4 h-4" />
@@ -98,8 +98,8 @@ const switchLang = async (code: string) => {
           v-if="config.social.whatsapp"
           :href="config.social.whatsapp" 
           target="_blank" 
-          class="flex items-center justify-center w-8 h-8 rounded-full transition-colors duration-300 hover:bg-black/10 hover:shadow-inner"
-          aria-label="WhatsApp"
+          class="flex items-center justify-center w-8 h-8 rounded-full transition-colors duration-300 hover:bg-black/10 hover:shadow-inner scale-[0.85] sm:scale-100"
+          aria-label="WhatsApp üzerinden bizimle iletişime geçin"
         >
           <UIcon name="i-simple-icons-whatsapp" class="w-4 h-4" />
         </a>
@@ -113,8 +113,8 @@ const switchLang = async (code: string) => {
         <button
           v-for="loc in availableLocales"
           :key="loc.code"
-          class="lang-btn"
-          :class="locale === loc.code ? 'lang-btn-active' : 'lang-btn-inactive hover:bg-black/10 hover:shadow-inner'"
+          class="px-2 py-0.5 rounded text-[9px] font-semibold tracking-[0.1em] uppercase transition-all duration-400 cursor-pointer border-none outline-none leading-[1.6]"
+          :class="locale === loc.code ? 'bg-(--color-primary-500) text-(--text-inverse)' : 'bg-transparent text-(--text-muted) hover:bg-black/10 hover:shadow-inner'"
           :aria-label="`Switch to ${loc.name}`"
           @click="switchLang(loc.code)"
         >
@@ -125,60 +125,4 @@ const switchLang = async (code: string) => {
   </aside>
 </template>
 
-<style scoped>
-/* Sosyal Medya İkonlarını Sıkıştırma */
-.social-wrapper {
-  display: flex;
-  align-items: center;
-}
 
-/* Dil Butonu Stilleri */
-.lang-btn {
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  transition: all 0.4s ease;
-  cursor: pointer;
-  border: none;
-  outline: none;
-  line-height: 1.6;
-}
-
-.lang-btn-active {
-  background: var(--color-primary-500);
-  color: var(--text-inverse);
-}
-
-.lang-btn-inactive {
-  background: transparent;
-  color: var(--text-muted);
-}
-
-/* Silver Glow Efekti - Daha akışkan ve rafine */
-.silver-glow {
-  position: absolute; 
-  top: 0; 
-  left: -100%; 
-  width: 40%; 
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  filter: blur(25px); 
-  transform: skewX(-45deg);
-  animation: silverMove 8s infinite ease-in-out;
-}
-
-@keyframes silverMove {
-  0% { transform: translateX(-100%) skewX(-45deg); }
-  100% { transform: translateX(350%) skewX(-45deg); }
-}
-
-/* Mobil için ekstra ince ayar */
-@media (max-width: 640px) {
-  .social-wrapper a {
-    transform: scale(0.85);
-  }
-}
-</style>

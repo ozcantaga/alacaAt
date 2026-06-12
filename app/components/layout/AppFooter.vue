@@ -10,7 +10,7 @@
           <div class="star-rating text-sm mb-4">
             <span v-for="s in getStarsArray()" :key="s" class="text-(--icon-primary)">★</span>
           </div>
-          <p class="text-(--text-body) text-sm leading-relaxed mb-6">
+          <p class="text-(--text-heading) opacity-90 text-sm leading-relaxed mb-6">
             {{ t(config.shortDescription) }}
           </p>
           <!-- Social Icons -->
@@ -26,8 +26,8 @@
               v-if="config.social.whatsapp"
               name="i-simple-icons-whatsapp"
               :to="config.social.whatsapp"
-              aria-label="WhatsApp"
-              class="!bg-[#25D366] !text-white hover:!bg-[#128C7E] hover:scale-110 transition-all duration-300"
+              aria-label="WhatsApp üzerinden bizimle iletişime geçin"
+              class="!bg-[#128C7E] !text-white hover:!bg-[#075E54] hover:scale-110 transition-all duration-300"
             />
             <PremiumIcon
               v-if="config.social.tripadvisor"

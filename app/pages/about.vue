@@ -25,7 +25,9 @@
                 class="w-full h-full object-cover"
                 loading="lazy"
                 format="webp"
-                sizes="sm:100vw md:50vw lg:800px"
+                width="600"
+                height="450"
+                sizes="xs:100vw sm:100vw md:50vw lg:500px xl:600px"
               />
             </div>
           </div>
@@ -50,7 +52,7 @@
     <!-- Values Section -->
     <section class="section-padding">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SharedSectionHeading
+        <LazySharedSectionHeading
           :title="$t('about.valuesTitle')"
           :subtitle="$t('about.valuesSubtitle')"
         />

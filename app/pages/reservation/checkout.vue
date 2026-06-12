@@ -293,10 +293,11 @@ onBeforeUnmount(() => {
             <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
               <!-- Ad -->
               <div class="space-y-1.5">
-                <label class="text-[10px] font-bold uppercase tracking-widest text-(--text-muted)">
+                <label for="firstName" class="text-[10px] font-bold uppercase tracking-widest text-(--text-muted)">
                   {{ t('reservation.checkout.firstName') }} <span class="text-(--text-highlight)">*</span>
                 </label>
                 <input
+                  id="firstName"
                   v-model="guestForm.firstName"
                   type="text"
                   class="w-full h-12 px-4 rounded-xl border outline-none transition-all text-(--text-body) bg-(--color-page-bg) placeholder:text-(--text-muted)/40"
@@ -307,10 +308,11 @@ onBeforeUnmount(() => {
               </div>
               <!-- Soyad -->
               <div class="space-y-1.5">
-                <label class="text-[10px] font-bold uppercase tracking-widest text-(--text-muted)">
+                <label for="lastName" class="text-[10px] font-bold uppercase tracking-widest text-(--text-muted)">
                   {{ t('reservation.checkout.lastName') }} <span class="text-(--text-highlight)">*</span>
                 </label>
                 <input
+                  id="lastName"
                   v-model="guestForm.lastName"
                   type="text"
                   class="w-full h-12 px-4 rounded-xl border outline-none transition-all text-(--text-body) bg-(--color-page-bg) placeholder:text-(--text-muted)/40"
@@ -321,10 +323,11 @@ onBeforeUnmount(() => {
               </div>
               <!-- E-posta -->
               <div class="space-y-1.5">
-                <label class="text-[10px] font-bold uppercase tracking-widest text-(--text-muted)">
+                <label for="email" class="text-[10px] font-bold uppercase tracking-widest text-(--text-muted)">
                   {{ t('reservation.checkout.email') }} <span class="text-(--text-highlight)">*</span>
                 </label>
                 <input
+                  id="email"
                   v-model="guestForm.email"
                   type="email"
                   class="w-full h-12 px-4 rounded-xl border outline-none transition-all text-(--text-body) bg-(--color-page-bg) placeholder:text-(--text-muted)/40"
@@ -335,10 +338,11 @@ onBeforeUnmount(() => {
               </div>
               <!-- Telefon -->
               <div class="space-y-1.5">
-                <label class="text-[10px] font-bold uppercase tracking-widest text-(--text-muted)">
+                <label for="phone" class="text-[10px] font-bold uppercase tracking-widest text-(--text-muted)">
                   {{ t('reservation.checkout.phone') }} <span class="text-(--text-highlight)">*</span>
                 </label>
                 <input
+                  id="phone"
                   v-model="guestForm.phone"
                   type="tel"
                   class="w-full h-12 px-4 rounded-xl border outline-none transition-all text-(--text-body) bg-(--color-page-bg) placeholder:text-(--text-muted)/40"
@@ -349,11 +353,12 @@ onBeforeUnmount(() => {
               </div>
               <!-- Özel İstekler -->
               <div class="md:col-span-2 space-y-1.5">
-                <label class="text-[10px] font-bold uppercase tracking-widest text-(--text-muted)">
+                <label for="requests" class="text-[10px] font-bold uppercase tracking-widest text-(--text-muted)">
                   {{ t('reservation.checkout.requests') }}
                   <span class="normal-case tracking-normal font-normal ml-1">(isteğe bağlı)</span>
                 </label>
                 <textarea
+                  id="requests"
                   v-model="guestForm.requests"
                   rows="3"
                   class="w-full p-4 rounded-xl border border-(--text-muted)/20 focus:ring-1 focus:ring-(--text-highlight)/50 focus:border-(--text-highlight) outline-none transition-all resize-none text-(--text-body) bg-(--color-page-bg) placeholder:text-(--text-muted)/40"
@@ -574,7 +579,9 @@ onBeforeUnmount(() => {
                   :src="stableRoom.images[currentImageIndex]"
                   :alt="tRoom(stableRoom.name)"
                   class="w-full h-full object-cover"
-                  sizes="sm:100vw lg:560px"
+                  width="560"
+                  height="420"
+                  sizes="xs:100vw sm:100vw md:50vw lg:560px"
                 />
               </transition>
 

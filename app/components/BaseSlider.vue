@@ -133,12 +133,16 @@ defineExpose({ prevSlide, nextSlide, goTo, currentIndex })
             role="tab"
             :aria-selected="idx === currentIndex"
             :aria-label="`Slayt ${idx + 1}`"
-            class="rounded-full transition-all duration-400 ease-in-out"
-            :class="idx === currentIndex
-              ? 'w-4 h-[5px] bg-(--color-primary-500)'
-              : 'w-[5px] h-[5px] bg-(--text-muted)/30 hover:bg-(--text-muted)/60'"
+            class="w-11 h-11 sm:w-8 sm:h-8 flex items-center justify-center cursor-pointer group"
             @click="goTo(idx)"
-          />
+          >
+            <span
+              class="rounded-full transition-all duration-400 ease-in-out"
+              :class="idx === currentIndex
+                ? 'w-4 h-[5px] bg-(--color-primary-500)'
+                : 'w-[5px] h-[5px] bg-(--text-muted)/30 group-hover:bg-(--text-muted)/60'"
+            ></span>
+          </button>
         </div>
       </div>
     </ClientOnly>

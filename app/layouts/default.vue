@@ -4,7 +4,7 @@
     <main class="flex-1">
       <slot />
     </main>
-    <LayoutAppFooter />
+    <LazyLayoutAppFooter />
 
     <ClientOnly>
       <LazyHotelReservationBar v-if="deferReservationBar" />
@@ -47,7 +47,9 @@ const initReservationBar = () => {
 }
 
 const handleScroll = () => {
-  showBackToTop.value = window.scrollY > 400
+  window.requestAnimationFrame(() => {
+    showBackToTop.value = window.scrollY > 400
+  })
 }
 
 const scrollToTop = () => {

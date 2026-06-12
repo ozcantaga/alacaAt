@@ -9,7 +9,7 @@
           'px-6 py-2.5 text-[9px] tracking-[0.2em] uppercase font-bold whitespace-nowrap transition-all duration-500 rounded-full border cursor-pointer',
           modelValue === cat.id
             ? 'bg-(--color-primary-500) text-white border-(--color-primary-500) shadow-lg'
-            : 'bg-(--color-primary-400) text-(--text-inverse) border-transparent hover:bg-(--color-primary-500) hover:shadow-md'
+            : 'bg-transparent text-(--text-heading) border-black/10 hover:bg-black/5 hover:border-black/20'
         ]"
       >
         {{ cat.label }}

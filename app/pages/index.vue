@@ -58,6 +58,8 @@
                   loading="lazy"
                   quality="50"
                   format="webp"
+                  width="400"
+                  height="533"
                   sizes="xs:300px sm:400px md:400px lg:400px"
                 />
               </div>
@@ -71,6 +73,8 @@
                   loading="lazy"
                   quality="50"
                   format="webp"
+                  width="400"
+                  height="533"
                   sizes="xs:300px sm:400px md:400px lg:400px"
                 />
               </div>
@@ -97,7 +101,7 @@
           </h2>
         </div>
 
-        <BaseSlider
+        <LazyBaseSlider
           :items="featuredRooms"
           :hideArrows="false"
           itemClass="w-[85vw] sm:w-[380px] md:w-[420px]"
@@ -110,7 +114,7 @@
               class="h-full"
             />
           </template>
-        </BaseSlider>
+        </LazyBaseSlider>
 
         <!-- View All Button -->
         <div class="text-center mt-16 flex justify-center">
@@ -128,11 +132,11 @@
     <!-- Amenities Section -->
     <section id="amenities" class="section-padding">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SharedSectionHeading
+        <LazySharedSectionHeading
           :title="$t('home.amenities')"
           :subtitle="$t('home.amenitiesSubtitle')"
         />
-        <HotelAmenityGrid :amenities="getAmenities()" />
+        <LazyHotelAmenityGrid :amenities="getAmenities()" />
       </div>
     </section>
 
@@ -155,7 +159,7 @@
           </h2>
         </div>
 
-        <HotelGallerySection
+        <LazyHotelGallerySection
           :items="config.gallery"
           :show-filters="false"
           :limit="5"
@@ -176,12 +180,12 @@
     </section>
 
     <!-- Testimonials Section -->
-    <HotelTestimonialCard id="testimonials" />
+    <LazyHotelTestimonialCard id="testimonials" />
 
     <!-- Location Section -->
     <section id="location" class="section-padding">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SharedSectionHeading
+        <LazySharedSectionHeading
           :title="$t('home.locationTitle')"
           :subtitle="$t('home.locationSubtitle')"
         />
@@ -216,7 +220,7 @@
           </div>
           <!-- Map -->
           <div class="lg:col-span-2">
-            <HotelLocationMap height="350" />
+            <LazyHotelLocationMap height="350" />
           </div>
         </div>
       </div>
@@ -233,6 +237,8 @@
           loading="lazy"
           quality="50"
           format="webp"
+          width="1920"
+          height="1080"
           sizes="xs:640px sm:768px md:1024px lg:1280px xl:1536px"
         />
         <div class="absolute inset-0 bg-black/60" />

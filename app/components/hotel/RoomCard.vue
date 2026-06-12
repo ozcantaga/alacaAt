@@ -62,17 +62,21 @@
           </button>
 
           <!-- Dot indicators -->
-          <div class="absolute bottom-2 left-1/2 -translate-x-1/2 z-20 flex gap-1.5">
+          <div class="absolute bottom-2 left-1/2 -translate-x-1/2 z-20 flex gap-1">
             <button
               v-for="(_, idx) in room.images"
               :key="idx"
               :aria-label="`Görsel ${idx + 1}`"
-              class="rounded-full transition-all duration-300"
-              :class="idx === currentImageIndex
-                ? 'w-4 h-1.5 bg-white'
-                : 'w-1.5 h-1.5 bg-white/50 hover:bg-white/80'"
+              class="w-6 h-6 flex items-center justify-center group"
               @click.prevent.stop="currentImageIndex = idx"
-            />
+            >
+              <span
+                class="rounded-full transition-all duration-300"
+                :class="idx === currentImageIndex
+                  ? 'w-4 h-1.5 bg-white'
+                  : 'w-1.5 h-1.5 bg-white/50 group-hover:bg-white/80'"
+              />
+            </button>
           </div>
         </template>
       </ClientOnly>

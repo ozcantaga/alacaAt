@@ -165,7 +165,7 @@ onMounted(() => {
             </h2>
             <hr class="w-16 h-[2px] mb-8 border-none rounded" />
             
-            <LazySharedContactForm />
+            <SharedContactForm />
           </div>
         </div>
       </div>
