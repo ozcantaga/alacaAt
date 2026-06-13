@@ -51,6 +51,7 @@ export interface BookingParams {
   adults: number
   children: number
   rateCode?: string            // Seçilen fiyat planı (HotelRunner)
+  bookingChannel?: string      // Rezervasyon kanalı (örn: 'alacaathotel.com.tr')
 }
 
 /** Rezervasyon sonucu */
@@ -58,6 +59,8 @@ export interface BookingResult {
   success: boolean
   confirmationCode?: string    // Onay kodu
   reservationId?: string       // Dış sistem rezervasyon ID
+  bookingStatus?: string       // ElektraWeb'den gelen rezervasyon durumu (CONFIRMED, PENDING vb.)
+  channelRecorded?: boolean    // Kanal bilgisi ElektraWeb'e iletildi mi?
   paymentUrl?: string          // Ödeme sayfası URL (HotelRunner / ElektraWeb)
   message?: string
   errors?: string[]
